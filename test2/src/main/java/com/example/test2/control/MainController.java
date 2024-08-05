@@ -35,7 +35,6 @@ JSP MVC 패턴 주소 맵핑
 		return "member/signUp";
 	}
 	@PostMapping("signUp")
-//	@GetMapping("signupSave")
 	public String signupSave(@RequestParam("userId") String id,@RequestParam("userPw") String pw,@RequestParam("userEmail") String email,@RequestParam("userTel") String tel,@RequestParam("userBirth") String birth) {
 		//String id=request.getParameter("userId");  // 기존 방법
 		System.out.println(id+","+pw+","+email+","+tel+","+birth);

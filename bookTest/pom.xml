@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>test2</artifactId>
+	<artifactId>bookTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test2</name>
+	<name>bookTest</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -30,8 +30,7 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+	<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>

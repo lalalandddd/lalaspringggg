@@ -31,6 +31,7 @@ JSP MVC 패턴 주소 맵핑
 */
 	@GetMapping("/test")  // test 주소 요청이 들어오면
 	public String testFirst() {
+		int a= Integer.parseInt("111");  
 		return "test";  // test.jsp 열기 (확장자 빼고 쓰자)
 	}
 	@GetMapping("/aaa.abc")

@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2> 도서 반납 화면입니다! </h2>
-	<a href="/"> project home </a>
-	<a href="/mytest"> === MY TEST PAGE!!! === </a>
-	<a href="/library"> === 도서관 관리 프로그램 메인 화면 === </a>
+	<h2> 잔액 표시 페이지 </h2>
+	<p> 현재 잔액은 ${bank.balance }원 입니다. </p>
+	<a href="/input"> 돌아가기 </a><br>
 </body>
 </html>

@@ -24,27 +24,33 @@ public class LibraryController {
 	}
 	@PostMapping("/login")
 	public ModelAndView login(@ModelAttribute MemberDTO memberDTO) {
-		ModelAndView mav=new ModelAndView("/member/userLoginCheck");
+		ModelAndView mav=new ModelAndView("mytest/member/userLoginCheck");
 		mav.addObject("userlogin",memberDTO);
 		return mav;
 	}
-	@GetMapping("/singup")
+	@GetMapping("/signup")
 	public String signup() {
 		return "mytest/member/userSignup";
 	}
 	@PostMapping("/signup")
 	public ModelAndView signup(@ModelAttribute MemberDTO memberDTO) {
-		ModelAndView mav=new ModelAndView("/mytest/member/userSignupSave");
+		ModelAndView mav=new ModelAndView("mytest/member/userSignupSave");
 		mav.addObject("data",memberDTO);
 		return mav;
 	}
-	@GetMapping("/userSave")
-	public String userSave() {
-		return "mytest/member/userSave";
+	@PostMapping("/userSave")
+	public ModelAndView userSave(@ModelAttribute MemberDTO memberDTO) {
+		ModelAndView mav=new ModelAndView("mytest/member/userSave");
+		mav.addObject("saveId",memberDTO);
+		return mav;
 	}
 	@GetMapping("/mLogin")
 	public String mSignup() {
 		return "mytest/member/managerLogin";
+	}
+	@GetMapping("/mLogout")
+	public String mLogout() {
+		return "mytest/library";
 	}
 	@GetMapping("/rental")
 	public String rental() {
@@ -52,7 +58,7 @@ public class LibraryController {
 	}
 	@GetMapping("/back")
 	public String back() {
-		return "mytest/book/return";
+		return "mytest/book/back";
 	}
 	@GetMapping("/managerMain")
 	public String managerMain() {

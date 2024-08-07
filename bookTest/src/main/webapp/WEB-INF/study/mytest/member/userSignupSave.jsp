@@ -16,6 +16,7 @@
 	<p> 회원 주소 : ${data.userAddress }</p>
 	<p> 회원 생일 : ${data.userBirth }</p>
 	<p> 회원 정보에 이상이 없으신가요? </p>
-	<a href="/userSave"> 이상 없음 </a><a href="/signup"> 수정 </a>
+	<form method="post" action="/userSave"><button> 이상 없음 </button></form>
+	<form method="get" action="/signup"><button>수정</button></form>
 </body>
 </html>

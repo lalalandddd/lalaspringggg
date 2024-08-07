@@ -9,4 +9,8 @@ public class MytestController {
 	public String library() {
 		return "mytest/library";
 	}
+	@GetMapping("/homework")
+	public String homework() {
+		return "mytest/homework";
+	}
 }

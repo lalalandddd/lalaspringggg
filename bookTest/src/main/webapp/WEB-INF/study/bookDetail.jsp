@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2> 도서 대여 화면입니다! </h2><br>
 	<a href="/"> project home </a><br>
-	<a href="/mytest"> === MY TEST PAGE!!! === </a><br>
-	<a href="/library"> === 도서관 관리 프로그램 메인 화면 === </a><br>
-	<a href="/user"> === 도서 회원 메뉴 === </a><br>
+	<h2> 도서정보 출력 페이지 </h2>
+	<p> 도서명 : ${book.bookTitle } </p>
+	<p> 저자 : ${book.bookWriter } </p>
+	<p> 출판사 : ${book.bookPublisher } </p>
+	<a href="/write"> 추가 입력? </a><br>
 </body>
 </html>

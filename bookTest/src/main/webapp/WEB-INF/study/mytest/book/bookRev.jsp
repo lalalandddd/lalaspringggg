@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2> 도서 수정 화면입니다! </h2>
-	<a href="/managerMain"> 관리자 화면 </a>
+	<h2> 도서 수정 화면입니다! </h2><br>
+	<a href="/managerMain"> 관리자 화면 </a><br>
 </body>
 </html>

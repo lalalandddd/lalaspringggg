@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,8 @@
 <link rel="stylesheet" href="/css/default.css">
 </head>
 <body>
+	<a href="/"> === 프로젝트 시작화면 === </a><br>
+	${list.get(0).bookTitle }
 	<div id="wrap">
 		<h2> 도서 관리 페이지 </h2>
 		<div id="mainTitle">
@@ -17,35 +20,31 @@
 		<div id="bookListWrap">
 			<ul id="bookList">
 				<li class="blist">
-					<span class="bookTitle">자바의 기초</span>
-					<span class="bookWriter">홍길동</span>
-					<span class="bookCode">ㅈ03홍2394</span>
-					<span class="bookSort">컴퓨터 프로그램언어</span>
+					<span class="bookTitle">책 제목</span>
+					<span class="bookSubtitle">부제</span>
+					<span class="bookWriter">저자</span>
+					<span class="bookCode">코드번호</span>
+					<span class="bookSort">분류</span>
 				</li>
-				<li class="blist">
-					<span class="bookTitle">스프링 프레임워크의 기초</span>
-					<span class="bookWriter">홍길동</span>
-					<span class="bookCode">ㅅ09홍2399</span>
-					<span class="bookSort">컴퓨터 프로그램언어</span>
-				</li>
-				<li class="blist">
-					<span class="bookTitle">안드로이드sdk</span>
-					<span class="bookWriter">김유신</span>
-					<span class="bookCode">ㅇ21김1154</span>
-					<span class="bookSort">컴퓨터 운영체제</span>
-				</li>
-				<li class="blist">
-					<span class="bookTitle">C언어 도장꺠기</span>
-					<span class="bookWriter">최배달</span>
-					<span class="bookCode">C27최0187</span>
-					<span class="bookSort">컴퓨터 프로그램언어</span>
-				</li>
-				<li class="blist">
-					<span class="bookTitle">GAMERS</span>
-					<span class="bookWriter">게이머즈</span>
-					<span class="bookCode">G77게6458</span>
-					<span class="bookSort">컴퓨터 게임</span>
-				</li>
+				<c:forEach var="row" items="${list }">
+					<li class="blist">
+						<span class="bookTitle">
+							<a href="/book2/bookView?id=${row.bookId}">${row.bookTitle }</a>
+						</span>
+						<span class="bookSubtitle">
+							<a href="/book2/bookView?id=${row.bookId}">${row.bookSubtitle }</a>
+						</span>
+						<span class="bookWriter">
+							<a href="/book2/bookView?id=${row.bookId}">${row.bookWriter }</a>
+						</span>
+						<span class="bookCode">
+							<a href="/book2/bookView?id=${row.bookId}">${row.bookCode }</a>
+						</span>
+						<span class="bookSort">
+							<a href="/book2/bookView?id=${row.bookId}">${row.bookSort }</a>
+						</span>
+					</li>
+				</c:forEach>
 			</ul>
 		</div>
 	</div>

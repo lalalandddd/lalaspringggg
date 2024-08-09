@@ -28,22 +28,6 @@ public class LibraryController {
 		mav.addObject("userlogin",memberDTO);
 		return mav;
 	}
-	@GetMapping("/signup")
-	public String signup() {
-		return "mytest/member/userSignup";
-	}
-	@PostMapping("/signup")
-	public ModelAndView signup(@ModelAttribute MemberDTO memberDTO) {
-		ModelAndView mav=new ModelAndView("mytest/member/userSignupSave");
-		mav.addObject("data",memberDTO);
-		return mav;
-	}
-	@PostMapping("/userSave")
-	public ModelAndView userSave(@ModelAttribute MemberDTO memberDTO) {
-		ModelAndView mav=new ModelAndView("mytest/member/userSave");
-		mav.addObject("saveId",memberDTO);
-		return mav;
-	}
 	@GetMapping("/mLogin")
 	public String mSignup() {
 		return "mytest/member/managerLogin";

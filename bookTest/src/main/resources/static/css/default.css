@@ -9,7 +9,7 @@ ul{
 	list-style:none;
 }
 #wrap{
-	width:800px;
+	width:1000px;
 	margin:0 auto;
 }
 #wrap h2{ padding:40px 0;}
@@ -26,14 +26,21 @@ ul{
 	color:inherit;
 }
 #enroll:hover{
-	font-weight:800;
-	color:blue;
+	font-weight:900;
+	color:white;
+	background:black;
 	cursor:pointer;
 }
 #bookListWrap{
 	padding:15px;
 }
+#memberListWrap{
+	padding:15px;
+}
 #bookList{
+	width:100%;
+}
+#memberList{
 	width:100%;
 }
 #bookList .blist{
@@ -42,7 +49,14 @@ ul{
 	padding:15px 0;
 	border-bottom:1px solid #ccc;
 }
-.bookTitle{width:40%;}
-.bookWriter{width:20%;}
-.bookCode{width:20%;}
-.bookSort{width:20%;}
+#memberList .mlist{
+	display:flex;
+	align-items:center;
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+}
+.bookTitle{width:30%;}
+.bookSubtitle{width:25%;}
+.bookWriter{width:15%;}
+.bookCode{width:15%;}
+.bookSort{width:15%;}

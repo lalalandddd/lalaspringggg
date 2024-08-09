@@ -12,5 +12,6 @@
 	<a href="/home"> === STUDY HOME PAGE!!! === </a><br>
 	<a href="/write"> === Book Write PAGE!!! === </a><br>
 	<a href="/index"> === 책 관리 페이지(공부중) === </a><br>
+	<a href="/coffe"> === 커피 관리 페이지 === </a><br>
 </body>
 </html>

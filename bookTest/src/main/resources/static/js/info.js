@@ -24,7 +24,14 @@ $(function(){
 				//text=text.replace(",","");  // 천 단위 콤마 제거
 				//if(isNaN(text)) text=text.substring(1);  // 원 표시 제거
 			}
-			$(v).html("<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>");
+			//$(v).html("<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>");
+			$input="<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>";
+				if(inputName[i]==="decaffein"){
+					$input="<input type='radio' name='decaffein' value='0' checked> 카페인 "+
+						"<input type='radio' name='decaffein' value='1' checked> 디카페인 ";
+				}
+			$(v).empty();
+			$(v).append($input);
 		});  // 클래스명이 value인 td 내부 설정
 /*
 		$(this).text("등록");  // 버튼 텍스트를 '등록'으로 변경
@@ -37,8 +44,6 @@ $(function(){
 		    $(this).text("수정");  // 버튼 텍스트를 다시 '수정'으로 변경
 		    $(this).off("click").on("click", arguments.callee);  // '수정' 버튼 클릭 이벤트 다시 설정
 		});
-
-		여기는 div="fm"으로 버튼 부분을 묶었을 때. 근데 내가 그렇게 안했어서......
 */
 		$(this).attr("id","mod");
 		var url=$("#fm").attr("action");  // form action 값 가져오기
@@ -46,6 +51,5 @@ $(function(){
 		$("#fm").attr("action",url);
 		$(this).off("click");
 		$("#mod").on("click",function(){ $("#fm").submit(); });
-
 	});
 });

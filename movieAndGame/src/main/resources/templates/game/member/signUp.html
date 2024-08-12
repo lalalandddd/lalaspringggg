@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게임 회원가입</title>
+</head>
+<body>
+	<a th:href="@{/}"> === projectHome.heml === </a><br>
+	<a th:href="@{index}"> === game/index.html === </a><br>
+	<h3> 게임톡톡 회원가입 화면!! </h3>
+	<div id="wrap">
+		<form th:object="${member}" method="post" th:action="@{/movie/member/signUp}">
+			<div class="inputField">
+				<input type="text" name="memberId" placeholder="아이디를 입력하세요">
+				<label th:for="memberId">아이디</label>
+			</div>
+			<div class="inputField">
+				<input type="password" name="password" placeholder="비밀번호를 입력하세요">
+				<label th:for="password">비밀번호</label>
+			</div>
+			<div class="inputField">
+				<input type="text" name="name" placeholder="닉네임을 입력하세요">
+				<label th:for="name">닉네임</label>
+			</div>
+			<div class="signUpBt">
+				<button>회원가입</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

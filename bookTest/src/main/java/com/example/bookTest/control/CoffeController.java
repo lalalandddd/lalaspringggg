@@ -44,4 +44,10 @@ public class CoffeController {
 		coffeService.coffeDelete(id);
 		return "redirect:/coffe";
 	}
+	@GetMapping("/coffe/update")
+	public String coffeUpdate(@ModelAttribute CoffeDto coffeDto, @RequestParam("id") int id) {
+		coffeDto.setCoffeId(id);
+		coffeService.coffeUpdate(coffeDto);
+		return "redirect:/coffe/coffeeView?id="+id;
+	}
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게임 회원 로그인</title>
+<!-- jquery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/default.css">
+<script src="/js/default.js"></script>
+</head>
+<body>
+	<a th:href="@{/}"> === projectHome.heml === </a><br>
+	<a th:href="@{index}"> === game/index.html === </a><br>
+	<h3> 게임톡톡 회원 로그인 화면!! </h3>
+	<div id="wrap">
+		<div id="header">
+			<div id="nav">
+				<ul id="menuList">
+					<li> <a></a> </li>
+					<li> <a></a> </li>
+					<li> <a></a> </li>
+					<li> <a href="/game/review">게임톡톡평점</a> </li>
+				</ul>
+				<div id="userALogo">
+					<div class="userBox">
+						<span class="login">
+							<a th:href="@{/game/login}"> 로그인 </a>
+						</span><br>
+						<span class="userService">고객센터</span>
+					</div>
+					<div class="logo"></div>
+				</div>
+			</div>
+		</div>
+<!-- game/member/login.html -->
+		<div id="main">
+			<form th:object="${member}" method="post" th:action="@{/game/member/signIn}">
+				<div id="formData">
+					<div class="inputField">
+						<input type="text" name="memberId">
+						<label th:for="memberId">아이디</label>
+					</div>
+					<div class="inputField">
+						<input type="password" name="password">
+						<label th:for="password">비밀번호</label>
+					</div>
+					<div class="loginBt">
+						<button>로그인</button>
+					</div>
+				</div>
+			</form>
+			<div id="forget_new">
+				<a href="/game/member/find">아이디/비밀번호 찾기</a>
+				<a href="/game/signUp">회원가입</a>
+			</div>
+		</div>
+		<div id="footer">
+			
+		</div>
+	</div>
+</body>
+</html>

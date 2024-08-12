@@ -1,14 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/"> project home </a><br>
-	<a href="/mytest"> === MY TEST PAGE!!! === </a><br><br>
+	<a th:href="@{/}"> === projectHome.html === </a><br>
 	<h2> 숙제들(언제 할래?) </h2>
 	<div id="todayHw">
 		<div class="HwBox">

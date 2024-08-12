@@ -30,4 +30,7 @@ public class CoffeService {
 	public void coffeDelete(int id) {
 		coffeDao.coffeDelete(id);
 	}
+	public void coffeUpdate(CoffeDto coffeDto) {
+		coffeDao.coffeUpdate(coffeDto);
+	}
 }

@@ -22,7 +22,7 @@
 				<li class="blist">
 					<span class="bookTitle">커미이름</span>
 					<span class="bookCode">가격</span>
-					<span class="bookSort">0:카페인/1:디카페인</span>
+					<span class="bookSort">카페인/디카페인</span>
 				</li>
 				<c:forEach var="row" items="${list }">
 					<li class="blist">
@@ -33,7 +33,7 @@
 							<a href="/coffe/coffeeView?id=${row.coffeId}">${row.price }</a>
 						</span>
 						<span class="bookSort">
-							<a href="/coffe/coffeeView?id=${row.coffeId}">${row.decaffein }</a>
+							<a href="/coffe/coffeeView?id=${row.coffeId}">${row.decaffein==1?'디카페인':'카페인' }</a>
 						</span>
 					</li>
 				</c:forEach>

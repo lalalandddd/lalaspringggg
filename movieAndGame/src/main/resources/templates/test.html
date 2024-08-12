@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a th:href="@{/}"> === projectHome.heml === </a><br>
+	<style>.name1{color:red;}</style>
+	<h1> thymeleaf 엔진 적용 페이지 </h1>
+	<div th:text="${name}"></div>
+	<div th:class="name1">영화광</div>
+	<table th:object=${member}>
+		<tr>
+			<td>이름 : </td><td th:text=*{name}></td>
+		</tr>
+		<tr>
+			<td>나이 : </td><td th:text=*{age}></td>
+		</tr>
+		<tr>
+			<td>이메일 : </td><td th:text=*{email}></td>
+		</tr>
+		<tr>
+			<td>연락처 : </td><td th:text=*{tel}></td>
+		</tr>
+	</table>
+
+<!-- 입력 구문 -->
+	<form th:object="${member}" method="post" action="/test">
+		<tr>
+			<td>이름 : </td><input th:field="*{name}"><br>
+			<td>나이 : </td><input th:field="*{age}"><br>
+			<td>이메일 : </td><input th:field="*{email}"><br>
+			<td>연락처 : </td><input th:field="*{tel}"><br>
+			<button>등록</button>
+		</tr>
+	</form>
+
+<!-- 반복 구문 -->
+	<ul>
+		<li th:each="aa:${animal}" th:text="${aa}"></li>
+	</ul>
+
+<!-- 조건문 if/unless -->
+	<div th:if="${member.age>=20}">
+		성인입니다.
+	</div>
+	<div th:unless="${member.age>=20}">
+		미성년자입니다.
+	</div>
+	<h3 th:text="${member.age>=20?'성인':'미성년자'}"></h3>
+
+<!-- 조건문 switch/case -->
+	<div th:switch="${name}">
+		<p th:case="영화광">영화마니아~</p>
+		<p th:case="게임광">헤비게이머~</p>
+		<p th:case="담배빵">헤비스모커~</p>
+		<p th:case="현실충">현실코스프레</p>
+	</div>
+
+<!-- 출력 방법 -->
+	<div th:text="${tag}"></div>
+	<div th:utext="${tag}"></div>
+
+<!-- 변수 생성 및 값 저장 -->
+	<div th:with="num=100">
+		<span th:text="${num}"></span>
+	</div>
+	<p th:text="${num}"></p>
+
+</body>
+</html>
+<!-- 
+thymeleaf 문법과 표현식
+  - ${} : 변수, Model 또는 ModelAndView로 지정한 이름만 사용 가능
+  - *{} : 선택변수, Model 또는 ModelAndView로 지정한 이름을 오브젝트로 선언하면 이름 안의 데이터 사용 가능
+  - @{} : url 링크 표현식, <a th:href="@{test}">test.html</a>
+  - #{} : 메시지, properties의 값을 표현할 때 사용
+
+반복문 : th:each   자바의 for(int num:numbers)와 동일한 동작
+  - 반복할 때, 반복문은 반복할 내용에 넣어야 한다. 반복문 안의 내용이 반복이 아니라 반복문이 걸린 태그가 반복된다.
+  - 방식 : <p> 태그가 반복되는 태그다. <div> 태그 안의 태그가 반복되는 게 아니다.
+  <div>
+  	<p th:each="data:${item}" th:text="${data}"></p>
+  </div>
+
+조건문 : (th:if, th:unless), (th:switch, th:case) 삼항연산자(조건연산자)
+  - th:unless
+    > 반드시 th:if 뒤에 나와야 한다. th:if는 참을 실행, th:unless는 거짓을 실행한다.
+    > java의 else if와 비슷한 느낌으로 써야 한다. 즉 조건문을 넣어야 한다.
+    > 조건문은 th:if의 조건과 동일하게 적어야 한다. 안그러면....
+    > 조건문이 참이면, th:unless의 조건문을 반대로 넣으면 거짓인데 unless는 거짓을 실행하므로 두 구문이 모두 실행된다.
+  - switch
+    > java의 switch/case와 동일하게 사용하면 된다.
+
+출력 : th:text="${변수명}",  th:utext="${변수명}",  th:value="${변수명}"
+  - th:text : 일반 텍스트 출력 (innerText)
+  - th:utext : 변수 안에 html 태그를 동작시켜서 출력한다. (innerHTML)
+  - th:value : input 태그, select 태그에 사용된다.
+
+변수 - 변수를 생성하고 값을 저장하는 방법 : th:with
+  - th:with로 생성된 변수는 사용범위가 제한적이다. 생성된 태그의 하위 태그에서만 사용 가능하다.
+
+타임리트 내부 주석 다는 방법 : <!--/* 주석 */-->
+  - 일반 주석은 F12 개발자 창에서 다 보인다.
+  - 타임리프 주석은 개발자 창에서도 보이지 않는다.
+-->

@@ -23,8 +23,14 @@ public class LibraryMemberService {
 	public List<MemberDTO> selectAll(){
 		return memberDAO.select();
 	}
-	public MemberDTO getMember(int idnb) {
-		if(idnb!=0) { return memberDAO.findIdnb(idnb); }
+	public MemberDTO getMember(int id) {
+		if(id!=0) { return memberDAO.findNb(id); }
 		return null;
+	}
+	public void memberDelete(int nb) {
+		memberDAO.memberDelete(nb);
+	}
+	public void memberUpdate(MemberDTO memberDTO) {
+		memberDAO.memberUpdate(memberDTO);
 	}
 }

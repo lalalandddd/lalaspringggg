@@ -58,7 +58,7 @@ public class CoffeDao {
 		jt.update(sql,id);
 	}
 	public void coffeUpdate(CoffeDto coffeDto) {
-		String sql="update coffe set item_name=?,price=?,decaffein=? where coffe_id=?";
+		String sql="update coffe set item_name=?, price=?, decaffein=? where coffe_id=?";
 		jt.update(sql,coffeDto.getItemName(),coffeDto.getPrice(),coffeDto.getDecaffein(),coffeDto.getCoffeId());
 	}
 }

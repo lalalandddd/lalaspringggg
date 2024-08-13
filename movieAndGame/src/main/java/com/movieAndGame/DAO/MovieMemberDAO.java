@@ -1,4 +1,4 @@
-package com.movieAndGame.control.DAO;
+package com.movieAndGame.DAO;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.jdbc.core.JdbcTemplate;

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>커피 메뉴 등록</title>
 </head>
 <body>
 	<a href="/coffe">HOME</a><br>

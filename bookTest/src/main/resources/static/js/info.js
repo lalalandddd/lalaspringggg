@@ -16,6 +16,13 @@ $(function(){
 			location.href="/coffe/coffeeDelete?id="+coffeId;
 		}
 	});
+	$("#delete3").on("click",function(){
+		var userNb=$(this).data("id");
+		var isOk=confirm("정말로 삭제하시겠습니까?");
+		if(isOk){
+			location.href="/mytest/member/memberDelete?id="+userNb;
+		}
+	});
 	$("#modify").on("click",function(){
 		$.each( $(".value"),function(i,v){  // i=인덱스, v=인덱스의 값
 			var text=$(v).text().trim();
@@ -27,7 +34,7 @@ $(function(){
 			//$(v).html("<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>");
 			$input="<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>";
 				if(inputName[i]==="decaffein"){
-					$input="<input type='radio' name='decaffein' value='0' checked> 카페인 "+
+					$input="<input type='radio' name='decaffein' value='0'> 카페인 "+
 						"<input type='radio' name='decaffein' value='1' checked> 디카페인 ";
 				}
 			$(v).empty();
@@ -48,6 +55,25 @@ $(function(){
 		$(this).attr("id","mod");
 		var url=$("#fm").attr("action");  // form action 값 가져오기
 		url=url.replace("delete","update");  // 삭제를 갱신으로 변경
+		$("#fm").attr("action",url);
+		$(this).off("click");
+		$("#mod").on("click",function(){ $("#fm").submit(); });
+	});
+	$("#modify2").on("click",function(){
+		$.each( $(".value"),function(i,v){
+			var text=$(v).text().trim();
+			if(inputType[i]==="number"){ text=text.replace(/[^0-9]/g,""); }
+			$input="<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>";
+				if(inputName[i]==="decaffein"){
+					$input="<input type='radio' name='decaffein' value='0'> 카페인 "+
+						"<input type='radio' name='decaffein' value='1' checked> 디카페인 ";
+				}
+			$(v).empty();
+			$(v).append($input);
+		});
+		$(this).attr("id","mod");
+		var url=$("#fm").attr("action");
+		url=url.replace("delete","update");
 		$("#fm").attr("action",url);
 		$(this).off("click");
 		$("#mod").on("click",function(){ $("#fm").submit(); });

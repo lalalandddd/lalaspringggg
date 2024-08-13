@@ -31,7 +31,7 @@ public class CoffeController {
 	@PostMapping("/coffeUp")
 	public String coffeReg(@ModelAttribute CoffeDto coffeDto) {
 		coffeService.coffeReg(coffeDto);
-		return "redirect:/index";
+		return "redirect:coffe/coffeHome";
 	}
 	@GetMapping("/coffe/coffeeView")
 	public ModelAndView view(@RequestParam(value="id", required=false, defaultValue="0") int id) {
@@ -42,7 +42,7 @@ public class CoffeController {
 	@GetMapping("/coffe/coffeeDelete")
 	public String coffeDelete(@RequestParam("id") int id) {
 		coffeService.coffeDelete(id);
-		return "redirect:/coffe";
+		return "redirect:/coffe/coffeHome";
 	}
 	@GetMapping("/coffe/update")
 	public String coffeUpdate(@ModelAttribute CoffeDto coffeDto, @RequestParam("id") int id) {

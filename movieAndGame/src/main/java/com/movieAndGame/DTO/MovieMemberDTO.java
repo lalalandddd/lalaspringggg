@@ -7,6 +7,7 @@ public class MovieMemberDTO {
 	private int movieMemberId;
 	private String memberId;
 	private String name;
+	private String nick;
 	private String password;
 	private String email;
 	private String tel;

@@ -17,6 +17,13 @@ import com.example.bookTest.service.LibraryMemberService;
 public class LibraryMemberController {
 	@Autowired
 	private LibraryMemberService libraryMemberService;
+	@GetMapping("/memberList")
+	public ModelAndView memberList() {
+		ModelAndView mav=new ModelAndView("mytest/member/memberList");
+		List<MemberDTO> list=libraryMemberService.selectAll();
+		mav.addObject("list",list);
+		return mav;
+	}
 	@GetMapping("/signup")
 	public String signup() {
 		return "mytest/member/userSignup";
@@ -28,17 +35,21 @@ public class LibraryMemberController {
 		mav.addObject("data",memberDTO);
 		return mav;
 	}
-	@GetMapping("/memberList")
-	public ModelAndView memberList() {
-		ModelAndView mav=new ModelAndView("mytest/member/memberList");
-		List<MemberDTO> list=libraryMemberService.selectAll();
-		mav.addObject("list",list);
-		return mav;
-	}
 	@GetMapping("/mytest/member/userView")
 	public ModelAndView view(@RequestParam(value="id", required=false, defaultValue="0") int id) {
 		MemberDTO member=libraryMemberService.getMember(id);
 		if(member==null) member=new MemberDTO();
 		return new ModelAndView("mytest/member/userView").addObject("member",member);
+	}
+	@GetMapping("/mytest/member/memberDelete")
+	public String memberDelete(@RequestParam("id") int id) {
+		libraryMemberService.memberDelete(id);
+		return "redirect:/mytest/member/memberList";
+	}
+	@GetMapping("/mytest/member/memberUpdate")
+	public String memberUpdate(@ModelAttribute MemberDTO memberDTO, @RequestParam("id") int id) {
+		memberDTO.setUserNb(id);
+		libraryMemberService.memberUpdate(memberDTO);
+		return "redirect:/mytest/member/userView?id="+id;
 	}
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>도서관 회원 가입</title>
 <link rel="stylesheet" href="/css/write.css">
 </head>
 <body>

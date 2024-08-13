@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" id="modify">수정</button>
+						<button type="button" id="modify2">수정</button>
 						<button type="button" id="delete2" data-id="${coffee.coffeId }">삭제</button>
 					</td>
 				</tr>

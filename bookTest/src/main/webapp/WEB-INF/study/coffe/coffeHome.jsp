@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>커피 관리</title>
 <link rel="stylesheet" href="/css/default.css">
 </head>
 <body>
 	<a href="/"> === 프로젝트 시작화면 === </a><br>
 	${list.get(0).itemName } 잘 나오는지 확인 용... 나중에 지우자?
 	<div id="wrap">
-		<h2> 커피 관리 메뉴 </h2>
+		<h2> 커피 관리 페이지 </h2>
 		<div id="mainTitle">
 			<h3>등록 커피 목록</h3>
 			<a href="/coffeReg">커피등록</a>

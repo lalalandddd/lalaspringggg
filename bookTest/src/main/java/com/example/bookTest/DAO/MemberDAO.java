@@ -26,7 +26,7 @@ public class MemberDAO {
 		@Override
 		public MemberDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MemberDTO memberDTO=new MemberDTO();
-			memberDTO.setUserIdnb(rs.getInt("user_idnb"));
+			memberDTO.setUserNb(rs.getInt("user_nb"));
 			memberDTO.setUserId(rs.getString("user_id"));
 			memberDTO.setUserPw(rs.getString("user_pw"));
 			memberDTO.setUserName(rs.getString("user_name"));
@@ -42,13 +42,13 @@ public class MemberDAO {
 		List<MemberDTO> list=jt.query(sql, new MemberDTORowMapper());
 		return list;
 	}
-	public MemberDTO findIdnb(int idnb) {
-		String sql="select * from library_member where user_idnb=?";
+	public MemberDTO findNb(int id) {
+		String sql="select * from library_member where user_nb=?";
 //		MemberDTO data=jt.queryForObject(sql,new RowMapper<MemberDTO>() {
 //			@Override
 //			public MemberDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 //				MemberDTO memberDTO=new MemberDTO();
-//				memberDTO.setUserIdnb(rs.getInt("user_idnb"));
+//				memberDTO.setUserNb(rs.getInt("user_nb"));
 //				memberDTO.setUserId(rs.getString("user_id"));
 //				memberDTO.setUserPw(rs.getString("user_pw"));
 //				memberDTO.setUserName(rs.getString("user_name"));
@@ -58,8 +58,16 @@ public class MemberDAO {
 //				memberDTO.setUserBirth(rs.getString("user_birth"));
 //				return memberDTO;
 //			}
-//		},idnb);   // 여기 쓴 부분이 아래 한줄로 정리 끗
-		MemberDTO data=jt.queryForObject(sql,new MemberDTORowMapper(),idnb);
+//		},nb);   // 여기 쓴 부분이 아래 한줄로 정리 끗
+		MemberDTO data=jt.queryForObject(sql,new MemberDTORowMapper(),id);
 		return data;
+	}
+	public void memberDelete(int id) {
+		String sql="delete from library_member where user_nb=?";
+		jt.update(sql,id);
+	}
+	public void memberUpdate(MemberDTO memberDTO) {
+		String sql="update library_member set user_id=?, user_pw=?, user_name=?, user_email=?, user_tel=?, user_address=?, user_birth=? where user_nb=?";
+		jt.update(sql,memberDTO.getUserId(),memberDTO.getUserPw(),memberDTO.getUserName(),memberDTO.getUserEmail(),memberDTO.getUserTel(),memberDTO.getUserAddress(),memberDTO.getUserBirth(),memberDTO.getUserNb());
 	}
 }

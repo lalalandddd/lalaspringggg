@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* join.css */
+/* signUp.css */
 *{
 	margin:0;
 	padding:0;
@@ -32,7 +32,7 @@
 	top:14px;
 	font-size:19px;
 	color:#999;
-	transition:all 0.5s;
+	transition:all 1s;
 }
 #formData .inputField .focus{
 	top:-17px;
@@ -62,4 +62,8 @@
 	margin:0 auto;
 	display:block;
 	cursor:pointer;
+}
+.fieldError{
+	color:red;
+	padding-top:7px;
 }

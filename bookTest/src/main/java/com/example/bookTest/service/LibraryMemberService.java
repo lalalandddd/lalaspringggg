@@ -27,8 +27,8 @@ public class LibraryMemberService {
 		if(id!=0) { return memberDAO.findNb(id); }
 		return null;
 	}
-	public void memberDelete(int nb) {
-		memberDAO.memberDelete(nb);
+	public void memberDelete(int id) {
+		memberDAO.memberDelete(id);
 	}
 	public void memberUpdate(MemberDTO memberDTO) {
 		memberDAO.memberUpdate(memberDTO);

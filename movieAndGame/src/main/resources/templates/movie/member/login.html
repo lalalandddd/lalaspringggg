@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{movie/default}">
 <head>
 	<title layout:fragment="title">영화동아리 로그인</title>
-	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" href="/css/signUp.css">
+	</th:block>
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<form th:object="${movieMember}" method="post" th:action="@{member/lonin}">
+		<form th:object="${movieMemberDTO}" method="post" th:action="@{member/lonin}">
 			<div id="formData">
 				<div class="inputField">
 					<input type="text" th:field="*{memberId}">

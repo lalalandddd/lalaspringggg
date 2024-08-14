@@ -39,7 +39,7 @@ public class CoffeController {
 		if(coffee==null) coffee=new CoffeDto();
 		return new ModelAndView("coffe/coffeeView").addObject("coffee",coffee);
 	}
-	@GetMapping("/coffe/coffeeDelete")
+	@GetMapping("/coffe/coffeDelete")
 	public String coffeDelete(@RequestParam("id") int id) {
 		coffeService.coffeDelete(id);
 		return "redirect:/coffe/coffeHome";

@@ -3,6 +3,12 @@
 
 <mapper namespace="com.movieAndGame.DAO.GameMemberDAO">
 	<insert id="insert" parameterType="com.movieAndGame.DTO.GameMemberDTO">
-		insert into game_member(member_id, password, name, nick, email, tel, birth_year, birth_month) value(#{memberId},#{password},#{name},#{nick},#{email},#{tel},#{birthYear},#{birthMonth})
+		insert into game_member(member_id, password, name, nick, email, tel, birth_year, birth_month) values(#{memberId},#{password},#{name},#{nick},#{email},#{tel},#{birthYear},#{birthMonth})
 	</insert>
+	<select id="findAllId" resultType="java.lang.String">
+		select member_id from game_member;
+	</select>
+	<select id="login" resultType="com.movieAndGame.DTO.GameMemberDTO" parameterType="com.movieAndGame.DTO.GameMemberDTO">
+		select member_id, name, nick, email, tel, birth_year, birth_month from game_member where member_id=#{memberId} and password=#{password}
+	</select>
 </mapper>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:fragment="headerFrag" id="header">
+		<div id="nav">
+			<ul id="menuList">
+				<li> <a th:href="@{bookEnroll}">도서 등록</a> </li>
+				<li> <a th:href="@{bookSearch}">도서 검색</a> </li>
+				<li> <a th:href="@{bookRevise}">도서 수정</a> </li>
+				<li> <a th:href="@{bookDelete}">도서 삭제</a> </li>
+				<li> <a th:href="@{manageClose}">도서 관리 종료</a> </li>
+			</ul>
+			<div id="userALogo">
+				<div class="userBox">
+					<span class="login"> <a th:href="@{login}"> 관리자 로그인 </a> </span>
+				</div>
+				<div class="logo"></div>
+			</div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{movieReview/default}">
+<head>
+	<title layout:fragment="title">영화동아리</title>
+	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="script"></th:block>
+</head>
+	<div layout:fragment="main" id="main">
+		<h2> 영화 동아리 생생리뷰 메인 화면 </h2>
+		<div id="section_top">
+			<h3> 영화관람 24시간 내 작성된 후기 </h3>
+			<p> <a th:href="@{reviewWrite}"> 리뷰 작성 </a> </p>
+		</div>
+		<div id="section_middle">
+			<table id="reviewList">
+				
+			</table>
+		</div>
+		<div id="section_bottom">
+			<div id="searchBox">
+				
+			</div>
+		</div>
+	</div>
+</html>

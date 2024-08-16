@@ -1,5 +1,6 @@
 package com.movieAndGame.control;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,22 @@ public class GameController {
 		model.addAttribute("gameMemberDTO", new GameMemberDTO());
 		return "game/member/login";
 	}
+	@PostMapping("/login")
+	public String login(GameMemberDTO member, HttpSession session, Model model) {
+		GameMemberDTO user=gameMemberService.login(member);
+		if(user==null) {
+			model.addAttribute("member",member);
+			model.addAttribute("fail","a");
+			return "game/member/login";
+		}
+		session.setAttribute("user",user);
+		return "redirect:/game/index";
+	}
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		return "redirect:/movie/index";
+	}
 	@GetMapping("/signUp")
 	public String signUp(Model model) {
 		model.addAttribute("gameMemberDTO", new GameMemberDTO());
@@ -35,6 +52,11 @@ public class GameController {
 	@PostMapping("/signUp")
 	public String signUp(@Valid GameMemberDTO gameMemberDTO, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
+			return "game/member/signUp";
+		}
+		boolean isDup=gameMemberService.signUpSave(gameMemberDTO);
+		if(isDup) {
+			model.addAttribute("errorMessage","중복 아이디입니다.");
 			return "game/member/signUp";
 		}
 		gameMemberService.signUpSave(gameMemberDTO);
@@ -46,7 +68,7 @@ public class GameController {
 	}
 	@GetMapping("/mobile")
 	public String mobile() {
-		return "game/mobile";
+		return "game/target/index";
 	}
 	@GetMapping("/console")
 	public String console() {

@@ -10,8 +10,15 @@
 			</ul>
 			<div id="userALogo">
 				<div class="userBox">
-					<span class="login"> <a th:href="@{/login}"> 로그인 </a> </span>
-					<span class="userService"> 고객센터 </span>
+					<th:block th:if="${session.user!=null}">
+						<b th:text="${#session.getAttribute('user').name}"></b>
+						<a th:href="@{logout}"> 로그아웃 </a>
+					</th:block>
+					<th:block th:unless="${session.user!=null}">
+						<a th:href="@{login}"> 로그인 </a>
+						<a th:href="@{signUp}"> 회원가입 </a>
+					</th:block>
+					<p class="userService"> 고객센터 </p>
 				</div>
 				<div class="logo"></div>
 			</div>

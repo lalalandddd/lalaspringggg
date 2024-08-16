@@ -8,7 +8,7 @@ $(function(){
 	});
 	$(".inputField input").on("blur",function(){
 		var text=$(this).val();
-		if(text=''){
+		if(text==''){
 			$(this).removeClass("active");
 			$(this).next().removeClass("focus");
 		}

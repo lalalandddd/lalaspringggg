@@ -5,10 +5,18 @@
 	<th:block layout:fragment="css">
 		<link rel="stylesheet" href="/css/signUp.css">
 	</th:block>
-	<th:block layout:fragment="script"></th:block>
+	<th:block layout:fragment="script">
+		<script src="/js/signUp.js"></script>
+		<script src="/js/login.js"></script>
+	</th:block>
+	<th:block th:if="${fail}">
+		<script th:inline="javascript">
+			alert("아이디 또는 비밀번호를 잘못 입력하였습니다.");
+		</script>
+	</th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<form th:object="${movieMemberDTO}" method="post" th:action="@{member/lonin}">
+		<form th:object="${movieMemberDTO}" method="post" th:action="@{login}">
 			<div id="formData">
 				<div class="inputField">
 					<input type="text" th:field="*{memberId}">

@@ -11,12 +11,15 @@
 </head>
 	<div layout:fragment="main" id="main">
 		<h3> 게임톡톡 회원가입 화면!! </h3>
-		<form th:object="${gameMemberDTO}" method="post" th:action="@{/game/signUp}">
+		<form th:object="${gameMemberDTO}" method="post" th:action="@{signUp}">
 			<div id="formData">
 				<div class="inputField">
 					<input type="text" th:field="*{memberId}">
 					<label th:for="memberId">아이디</label>
 					<p th:if="${#fields.hasErrors('memberId')}" th:errors="*{memberId}" class="fieldError"></p>
+					<div th:if="${errorMessage}" class="fieldError"> <!-- movie 회원가입과는 다르게 작성 -->
+						<p th:text="${errorMessage}"></p>
+					</div>
 				</div>
 				<div class="inputField">
 					<input type="password" th:field="*{password}">

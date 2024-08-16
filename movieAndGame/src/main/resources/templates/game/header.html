@@ -12,8 +12,18 @@
 			</ul>
 			<div id="userALogo">
 				<div class="userBox">
-					<span class="login"> <a th:href="@{login}"> 로그인 </a> </span>
-					<span class="userService">고객센터</span>
+					<th:block th:if="${session.user!=null}">
+<!-- 					<th:block th:if="${session.user!=null}"> -->
+						<b th:text="${#session.getAttribute('user').name}"></b>
+<!-- 						<b th:text="${session.user.getName}"></b> --><!-- 위와 동일하지만 jsp 스타일. 위는 thymeleaf 스타일로 위처럼 만드는 것이 더 좋다고 한다. -->
+						<a th:href="@{logout}"> 로그아웃 </a>
+					</th:block>
+<!-- 					<a th:unless="${session.user!=null}" th:href="@login}">로그인</a> -->
+					<th:block th:unless="${session.user!=null}">
+						<a th:href="@{login}"> 로그인 </a>
+						<a th:href="@{signUp}"> 회원가입 </a>
+					</th:block>
+					<p class="userService">고객센터</p>
 				</div>
 				<div class="logo"></div>
 			</div>

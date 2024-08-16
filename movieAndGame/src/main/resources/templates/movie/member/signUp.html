@@ -11,7 +11,7 @@
 </head>
 	<div layout:fragment="main" id="main">
 		<h3> 영화동아리 회원가입 화면!! </h3>
-		<form th:object="${movieMemberDTO}" method="post" th:action="@{/movie/signUp}">
+		<form th:object="${movieMemberDTO}" method="post" th:action="@{signUp}">
 			<div id="formData">
 				<div class="inputField">
 					<input type="text" th:field="*{memberId}">

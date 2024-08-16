@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{game/default}">
+<head>
+	<title layout:fragment="title">게임톡톡 모바일게임 공략</title>
+	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="js"></th:block>
+</head>
+	<div layout:fragment="main" id="main">
+		<h2> 게임동아리 모바일게임 공략 화면 </h2>
+		<div id="section_top">
+			<h3> 공략 리뷰 24시간 내 작성된 후기 </h3>
+			<p> <a th:href="@{targetWrite}"> 공략 작성 </a> </p>
+		</div>
+		<div id="section_middle">
+			<table id="targetList">
+				
+			</table>
+		</div>
+		<div id="section_bottom">
+			<div id="searchBox">
+				
+			</div>
+		</div>
+	</div>
+</html>

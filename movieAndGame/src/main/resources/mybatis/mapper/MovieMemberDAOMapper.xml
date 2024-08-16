@@ -5,4 +5,10 @@
 	<insert id="insert" parameterType="com.movieAndGame.DTO.MovieMemberDTO">
 		insert into movie_member(member_id, password, name, nick, email, tel, birth_year, birth_month) value(#{memberId},#{password},#{name},#{nick},#{email},#{tel},#{birthYear},#{birthMonth})
 	</insert>
+	<select id="findAllId" resultType="java.lang.String">
+		select member_id from movie_member;
+	</select>
+	<select id="login" resultType="com.movieAndGame.DTO.MovieMemberDTO" parameterType="com.movieAndGame.DTO.MovieMemberDTO">
+		select member_id, name, nick, email, tel, birth_year, birth_month from movie_member where member_id=#{memberId} and password=#{password}
+	</select>
 </mapper>

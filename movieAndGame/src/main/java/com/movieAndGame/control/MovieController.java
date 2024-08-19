@@ -55,7 +55,6 @@ public class MovieController {
 	@PostMapping("/signUp")  // 유효성 검사, 검사결과는 Valid 뒤에 BindingResult로 받는다.
 	public String signUp(@Valid MovieMemberDTO movieMemberDTO, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
-			System.out.println("유효하지 않은 값이 입력됐다!!");
 			return "movie/member/signUp";  // 에러가 있다면 입력 페이지로 돌아간다.
 		}
 		boolean isDup=movieMemberService.signUpSave(movieMemberDTO);
@@ -77,9 +76,5 @@ public class MovieController {
 	@GetMapping("/preview")
 	public String preview() {
 		return "movie/preview";
-	}
-	@GetMapping("/review")
-	public String review() {
-		return "movie/review";
 	}
 }

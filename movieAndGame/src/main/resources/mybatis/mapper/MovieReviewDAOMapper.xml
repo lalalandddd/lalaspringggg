@@ -2,7 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.movieAndGame.DAO.MovieReviewDAO">
-	<insert id="insert" parameterType="com.movieAndGame.DTO.MovieReviewDTO">
+	<insert id="reviewSave" parameterType="com.movieAndGame.DTO.MovieReviewDTO">
 		insert into movie_review(title, writer, content, write_date) values(#{title},#{writer},#{content},now())
 	</insert>
+	<select id="findAll" resultType="com.movieAndGame.DTO.MovieReviewDTO">
+	/* mybatis 태그 내부 주석 */
+		select * from movie_review order by write_date desc;
+	</select>
+	<select id="findById" resultType="com.movieAndGame.DTO.MovieReviewDTO">
+		select * from movie_review where review_id=#{id}
+	</select>
 </mapper>

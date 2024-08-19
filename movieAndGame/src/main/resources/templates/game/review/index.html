@@ -2,18 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{game/default}">
 <head>
 	<title layout:fragment="title">게임톡톡 게임리뷰</title>
-	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" href="/css/review_index.css">
+	</th:block>
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<h2> 게임톡톡 리뷰 메인 화면 </h2>
+		<h2> 게임톡톡 리뷰 화면 </h2>
 		<div id="section_top">
 			<h3> 게임 리뷰 24시간 내 작성된 후기 </h3>
 			<p> <a th:href="@{reviewWrite}"> 리뷰 작성 </a> </p>
 		</div>
 		<div id="section_middle">
 			<table id="reviewList">
-				
+				<tr>
+					<th class="num">작성자</th>
+					<th class="title">제목</th>
+					<th class="date">작성일</th>
+				</tr>
+				<tr th:each="row:${reviewList}">
+					<td class="num" th:text="${row.writer}"></td>
+					<td class="title"><a th:href="@{'/gameReview/view/'+${row.review_id}}" th:text="${row.title}"></a></td>
+					<td class="date" th:text="${#temporals.format(row.write_date,'yyyy-MM-dd HH-mm')}"></td>
+				</tr>
 			</table>
 		</div>
 		<div id="section_bottom">

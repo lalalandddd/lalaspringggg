@@ -3,20 +3,20 @@
 	<div th:fragment="headerFrag" id="header">
 		<div id="nav">
 			<ul id="menuList">
-				<li> <a th:href="@{playing}">상영영화</a> </li>
-				<li> <a th:href="@{schedule}">상영예정영화</a> </li>
-				<li> <a th:href="@{preview}">시사회</a> </li>
-				<li> <a th:href="@{review}">생생영화후기</a> </li>
+				<li> <a th:href="@{/movie/playing}">상영영화</a> </li>
+				<li> <a th:href="@{/movie/schedule}">상영예정영화</a> </li>
+				<li> <a th:href="@{/movie/preview}">시사회</a> </li>
+				<li> <a th:href="@{/movieMenu/review}">생생영화후기</a> </li>
 			</ul>
 			<div id="userALogo">
 				<div class="userBox">
 					<th:block th:if="${session.user!=null}">
 						<b th:text="${#session.getAttribute('user').name}"></b>
-						<a th:href="@{logout}"> 로그아웃 </a>
+						<a th:href="@{/movie/logout}"> 로그아웃 </a>
 					</th:block>
 					<th:block th:unless="${session.user!=null}">
-						<a th:href="@{login}"> 로그인 </a>
-						<a th:href="@{signUp}"> 회원가입 </a>
+						<a th:href="@{/movie/login}"> 로그인 </a>
+						<a th:href="@{/movie/signUp}"> 회원가입 </a>
 					</th:block>
 					<p class="userService"> 고객센터 </p>
 				</div>

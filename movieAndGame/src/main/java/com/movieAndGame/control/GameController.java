@@ -42,7 +42,7 @@ public class GameController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
-		return "redirect:/movie/index";
+		return "redirect:/game/index";
 	}
 	@GetMapping("/signUp")
 	public String signUp(Model model) {
@@ -66,10 +66,6 @@ public class GameController {
 	public String pcgame() {
 		return "game/pcgame";
 	}
-	@GetMapping("/mobile")
-	public String mobile() {
-		return "game/target/index";
-	}
 	@GetMapping("/console")
 	public String console() {
 		return "game/console";
@@ -81,9 +77,5 @@ public class GameController {
 	@GetMapping("/disgame")
 	public String disgame() {
 		return "game/disgame";
-	}
-	@GetMapping("/review")
-	public String review() {
-		return "game/review";
 	}
 }

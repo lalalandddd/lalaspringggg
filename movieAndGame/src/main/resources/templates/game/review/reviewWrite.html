@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{game/default}">
 <head>
 	<title layout:fragment="title">리뷰작성</title>
-	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" href="/css/review_write.css">
 	<th:block layout:fragment="js"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
 		<h2> 리뷰 작성 </h2>
-		<form method="get" action="/write" th:object="${gameReviewDTO}">
+		<form method="get" action="/gameReview/write" th:object="${gameReviewDTO}">
 			작성자 : <input type="text" th:field="*{writer}" readonly="readonly"><br>
 			제목 : <input type="text" th:field="*{title}"><br>
 			<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>

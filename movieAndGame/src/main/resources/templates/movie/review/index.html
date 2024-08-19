@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{movieReview/default}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{movie/default}">
 <head>
-	<title layout:fragment="title">영화동아리</title>
-	<th:block layout:fragment="css"></th:block>
+	<title layout:fragment="title">영화동아리 생생리뷰</title>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" href="/css/review_index.css">
+	</th:block>
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<h2> 영화 동아리 생생리뷰 메인 화면 </h2>
+		<h2> 영화 동아리 생생리뷰 화면 </h2>
 		<div id="section_top">
 			<h3> 영화관람 24시간 내 작성된 후기 </h3>
 			<p> <a th:href="@{reviewWrite}"> 리뷰 작성 </a> </p>
 		</div>
 		<div id="section_middle">
 			<table id="reviewList">
-				
+				<tr>
+					<th class="num">번호</th>
+					<th class="title">제목</th>
+					<th class="date">작성일</th>
+				</tr>
+<!--  th:each="변수:${배열 또는 컬렉션}" 
+동작 → ${} 의 0 인덱스 값부터 변수에 하나씩 저장된다.
+-->
+				<tr th:each="row:${reviewList}">
+					<td class="num" th:text="${row.review_id}"></td>
+					<td class="title"><a th:href="@{'/movieMenu/view/'+${row.review_id}}" th:text="${row.title}"></a></td>
+					<td class="date" th:text="${#temporals.format(row.write_date,'yyyy-MM-dd HH-mm')}"></td>
+				</tr>
+<!--  thymeleaf 날짜 출력 방법
+1. ${#temporals.formatISO(변수명)}
+2. ${#dates.format(변수명, 'yyyy-MM-dd')}
+3. ${#temporals.format(변수명, 'yy-MM-dd HH:mm')}
+	 -->
 			</table>
 		</div>
 		<div id="section_bottom">

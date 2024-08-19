@@ -3,12 +3,12 @@
 	<div th:fragment="headerFrag" id="header">
 		<div id="nav">
 			<ul id="menuList">
-				<li> <a th:href="@{pcgame}">PC게임</a> </li>
-				<li> <a th:href="@{mobile}">모바일</a> </li>
-				<li> <a th:href="@{console}">콘솔</a> </li>
-				<li> <a th:href="@{makebyme}">MakeByMe</a> </li>
-				<li> <a th:href="@{disgame}">불만게임</a> </li>
-				<li> <a th:href="@{review}">게임톡톡리뷰</a> </li>
+				<li> <a th:href="@{/game/pcgame}">PC게임</a> </li>
+				<li> <a th:href="@{/gameReview/mobile}">모바일</a> </li>
+				<li> <a th:href="@{/game/console}">콘솔</a> </li>
+				<li> <a th:href="@{/game/makebyme}">MakeByMe</a> </li>
+				<li> <a th:href="@{/game/disgame}">불만게임</a> </li>
+				<li> <a th:href="@{/gameReview/review}">게임톡톡리뷰</a> </li>
 			</ul>
 			<div id="userALogo">
 				<div class="userBox">
@@ -16,12 +16,12 @@
 <!-- 					<th:block th:if="${session.user!=null}"> -->
 						<b th:text="${#session.getAttribute('user').name}"></b>
 <!-- 						<b th:text="${session.user.getName}"></b> --><!-- 위와 동일하지만 jsp 스타일. 위는 thymeleaf 스타일로 위처럼 만드는 것이 더 좋다고 한다. -->
-						<a th:href="@{logout}"> 로그아웃 </a>
+						<a th:href="@{/game/logout}"> 로그아웃 </a>
 					</th:block>
 <!-- 					<a th:unless="${session.user!=null}" th:href="@login}">로그인</a> -->
 					<th:block th:unless="${session.user!=null}">
-						<a th:href="@{login}"> 로그인 </a>
-						<a th:href="@{signUp}"> 회원가입 </a>
+						<a th:href="@{/game/login}"> 로그인 </a>
+						<a th:href="@{/game/signUp}"> 회원가입 </a>
 					</th:block>
 					<p class="userService">고객센터</p>
 				</div>

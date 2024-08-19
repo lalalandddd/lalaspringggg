@@ -7,7 +7,7 @@
 </head>
 	<div layout:fragment="main" id="main">
 		<h2> 리뷰 작성 </h2>
-		<form method="get" action="/write" th:object="${gameTargetMobileDTO}">
+		<form method="get" action="/mobileWrite" th:object="${gameTargetMobileDTO}">
 			작성자 : <input type="text" th:field="*{writer}" readonly="readonly"><br>
 			제목 : <input type="text" th:field="*{title}"><br>
 			<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>

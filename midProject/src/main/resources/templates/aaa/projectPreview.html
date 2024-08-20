@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+table{
+	border:1px solid black;
+	border-radius:5px;
+	margin-left:10px;
+	width:1300px;
+}
+thead{
+	background:lightgreen;
+	font-weight:800;
+}
+td{
+	border:1px solid black;
+	border-radius:5px;
+	text-align:center;
+}
+.aaa{ text-align:left; }
+.name{
+	color:red;
+	font-weight:800;
+}
+.sname{ font-weight:600; }
+</style>
+<body>
+	<a th:href="@{/}"> 처음화면 </a><br>
+	<h3> 중간프로젝트 프리뷰 </h3>
+	<h1> 프로젝트 명 : 도서관리 사이트 제작 </h1>
+	<p>
+	전체 프로젝트 기간 : 2024. 09. 02 ~ 2024. 09. 13<br>
+	프로젝트 계획 기간 : 2024. 09. 01<br>
+	프로젝트 요구사항 도출 및 화면 설계 : 2024. 09. 02<br>
+	프로젝트 구현 기간 : 2024. 09. 03 ~ 2024. 09. 12<br>
+	프로젝트 오픈 일정 : 2024. 09. 13<br>
+	프로젝트 기대 효과 : 도서관에서 도서 관리(도서 검색/추가/수정/삭제)의 편의성 증진<br>
+	
+	</p>
+	<h3> 요구사항 정의 </h3>
+	<table>
+		<thead>
+			<tr>
+				<td class="want">요구사항</td>
+				<td class="how">요구내용</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="want">관리자 화면 디자인</td>
+				<td class="how">관리자 목록 확인 및 관리자 관리화면</td>
+			</tr>
+			<tr>
+				<td class="want">관리자 관리</td>
+				<td class="how">3등급 관리자: 1~2등급 관리자의 등급 변경, 관리자 추가, 관리자 삭제</td>
+			</tr>
+			<tr>
+				<td class="want">관리자 글쓰기</td>
+				<td class="how">2~3등급 관리자 : 관리자 게시판 조회/글쓰기/내용변경/삭제 가능</td>
+			</tr>
+			<tr>
+				<td class="want">도서관리 화면 디자인</td>
+				<td class="how">도서 목록(페이징), 도서 검색 및 도서 세부 내용 화면</td>
+			</tr>
+			<tr>
+				<td class="want">도서관리 화면</td>
+				<td class="how"></td>
+			</tr>
+		</tbody>
+	</table>
+	<h3> 소프트웨어 구성도 </h3>
+	<table>
+		<thead>
+			<tr>
+				<td class="sname">소프트웨어</td>
+				<td class="sver">소프트웨어 버전</td>
+				<td class="sname">소프트웨어</td>
+				<td class="sver">소프트웨어 버전</td>
+				<td class="sname">소프트웨어</td>
+				<td class="sver">소프트웨어 버전</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="sname">tomcat</td>
+				<td class="sver">-</td>
+				<td class="sname">thymeleaf</td>
+				<td class="sver">-</td>
+				<td class="sname">validation</td>
+				<td class="sver">-</td>
+			</tr>
+			<tr>
+				<td class="sname">spring boot devtools</td>
+				<td class="sver">-</td>
+				<td class="sname">springframework boot</td>
+				<td class="sver">2.5.6</td>
+				<td class="sname">spring web</td>
+				<td class="sver">-</td>
+			</tr>
+			<tr>
+				<td class="sname">mybatis</td>
+				<td class="sver">2.2.2</td>
+				<td class="sname">MySQL</td>
+				<td class="sver">8.3.0</td>
+				<td class="sname">javascript</td>
+				<td class="sver">-</td>
+			</tr>
+			<tr>
+				<td class="sname">html</td>
+				<td class="sver">-</td>
+				<td class="sname">css</td>
+				<td class="sver">-</td>
+				<td class="sname">windows</td>
+				<td class="sver">10 Home</td>
+			</tr>
+			<tr>
+				<td class="sname">port</td>
+				<td class="sver">80</td>
+				<td class="sname">lombok</td>
+				<td class="sver">-</td>
+				<td class="sname">jdk</td>
+				<td class="sver">11</td>
+			</tr>
+			<tr>
+				<td class="sname">DBeaber</td>
+				<td class="sver">-</td>
+				<td class="sname"></td>
+				<td class="sver"></td>
+				<td class="sname"></td>
+				<td class="sver"></td>
+			</tr>
+		</tbody>
+	</table>
+	<h3> 사용 변수 </h3>
+	<table>
+		<thead>
+			<tr>
+				<td class="dto">DTO</td>
+				<td class="type">DTO 변수타입</td>
+				<td class="db">DB 변수타입</td>
+				<td class="name">변수명</td>
+				<td class="mean">변수의미</td>
+				<td class="aaa">변수설명</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="dto">MngDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">mngid</td>
+				<td class="mean">관리자 아이디</td>
+				<td class="aaa">8~15자 사이의 영어 대소문자, 숫자만</td>
+			</tr>
+			<tr>
+				<td class="dto">MngDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">mngpw</td>
+				<td class="mean">관리자 암호</td>
+				<td class="aaa">8~15자 사이의 영어 대소문자, 숫자만</td>
+			</tr>
+			<tr>
+				<td class="dto">MngDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">mngname</td>
+				<td class="mean">관리자 이름</td>
+				<td class="aaa">최대 20자</td>
+			</tr>
+			<tr>
+				<td class="dto">MngDTO</td>
+				<td class="type">int</td>
+				<td class="db">int</td>
+				<td class="name">mnggrade</td>
+				<td class="mean">관리자 등급</td>
+				<td class="aaa">1등급(단순 도서 관리) 2등급(게시판 사용 가능) 3등급(관리자 추가/삭제 가능)</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(100)</td>
+				<td class="name">btitl</td>
+				<td class="mean">제목</td>
+				<td class="aaa">최대 100자</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(100)</td>
+				<td class="name">bsubt</td>
+				<td class="mean">부제</td>
+				<td class="aaa">최대 100자</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">int</td>
+				<td class="db">int</td>
+				<td class="name">bvolu</td>
+				<td class="mean">권수</td>
+				<td class="aaa">현재 책의 권수, 시리즈가 아니면 1</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">bwrit</td>
+				<td class="mean">지은이</td>
+				<td class="aaa">책 저자, 무조건 한글로</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">btran</td>
+				<td class="mean">옮긴이</td>
+				<td class="aaa">번역가</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">bkeyw</td>
+				<td class="mean">주제어</td>
+				<td class="aaa">도서 검색용 단어</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">bpubl</td>
+				<td class="mean">출판사</td>
+				<td class="aaa">최대 20자</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">int</td>
+				<td class="db">int</td>
+				<td class="name">bpage</td>
+				<td class="mean">페이지</td>
+				<td class="aaa">총 페이지 수</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">datetime</td>
+				<td class="name">bdate</td>
+				<td class="mean">발행일</td>
+				<td class="aaa">${#dates.format(변수명, 'yyyy-MM-dd')} 사용</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">int</td>
+				<td class="db">int</td>
+				<td class="name">bpric</td>
+				<td class="mean">가격</td>
+				<td class="aaa">구매 가격</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">bsort</td>
+				<td class="mean">분류</td>
+				<td class="aaa">분류 (소설/만화/위인전/사전/카탈로그/잡지/철학/신문/등)</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">varchar(20)</td>
+				<td class="name">bcode</td>
+				<td class="mean">코드번호</td>
+				<td class="aaa">저자이름첫글자+00+책이름첫글자+0000 스타일</td>
+			</tr>
+			<tr>
+				<td class="dto">BkDTO</td>
+				<td class="type">String</td>
+				<td class="db">text</td>
+				<td class="name">bcont</td>
+				<td class="mean">목차</td>
+				<td class="aaa">목차</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

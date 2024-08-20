@@ -44,9 +44,9 @@ public class LibraryMemberController {
 	@GetMapping("/mytest/member/memberDelete")
 	public String memberDelete(@RequestParam("id") int id) {
 		libraryMemberService.memberDelete(id);
-		return "redirect:/mytest/member/memberList";
+		return "redirect:/memberList";
 	}
-	@GetMapping("/mytest/member/memberUpdate")
+	@GetMapping("/mytest/member/update")
 	public String memberUpdate(@ModelAttribute MemberDTO memberDTO, @RequestParam("id") int id) {
 		memberDTO.setUserNb(id);
 		libraryMemberService.memberUpdate(memberDTO);

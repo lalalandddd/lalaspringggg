@@ -13,7 +13,7 @@ $(function(){
 		var coffeId=$(this).data("id");
 		var isOk=confirm("정말로 삭제하시겠습니까?");
 		if(isOk){
-			location.href="/coffe/coffeeDelete?id="+coffeId;
+			location.href="/coffe/coffeDelete?id="+coffeId;
 		}
 	});
 	$("#delete3").on("click",function(){
@@ -64,10 +64,6 @@ $(function(){
 			var text=$(v).text().trim();
 			if(inputType[i]==="number"){ text=text.replace(/[^0-9]/g,""); }
 			$input="<input type='"+inputType[i]+"' name='"+inputName[i]+"' value='"+text+"'>";
-				if(inputName[i]==="decaffein"){
-					$input="<input type='radio' name='decaffein' value='0'> 카페인 "+
-						"<input type='radio' name='decaffein' value='1' checked> 디카페인 ";
-				}
 			$(v).empty();
 			$(v).append($input);
 		});

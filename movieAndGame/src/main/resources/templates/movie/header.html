@@ -11,7 +11,7 @@
 			<div id="userALogo">
 				<div class="userBox">
 					<th:block th:if="${session.user!=null}">
-						<b th:text="${#session.getAttribute('user').name}"></b>
+						<b th:text="${#session.getAttribute('user').nick}"></b>
 						<a th:href="@{/movie/logout}"> 로그아웃 </a>
 					</th:block>
 					<th:block th:unless="${session.user!=null}">

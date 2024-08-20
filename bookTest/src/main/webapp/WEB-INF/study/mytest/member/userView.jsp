@@ -52,7 +52,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" id="modify">회원정보 수정</button>
+						<button type="button" id="modify2">회원정보 수정</button>
 						<button type="button" id="delete3" data-id="${member.userNb }">회원 삭제</button>
 					</td>
 				</tr>

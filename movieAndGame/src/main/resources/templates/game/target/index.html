@@ -11,7 +11,7 @@
 		<h2> 게임동아리 모바일게임 공략 화면 </h2>
 		<div id="section_top">
 			<h3> 공략 리뷰 24시간 내 작성된 후기 </h3>
-			<p> <a th:href="@{targetWrite}"> 공략 작성 </a> </p>
+			<p> <a th:href="@{mtargetWrite}"> 공략 작성 </a> </p>
 		</div>
 		<div id="section_middle">
 			<table id="reviewList">
@@ -20,10 +20,10 @@
 					<th class="title">제목</th>
 					<th class="date">작성일</th>
 				</tr>
-				<tr th:each="row:${reviewList}">
+				<tr th:each="row:${targetList}">
 					<td class="num" th:text="${row.writer}"></td>
-					<td class="title"><a th:href="@{'/review/target/'+${row.post_id}}" th:text="${row.title}"></a></td>
-					<td class="date" th:text="${#dates.format(row.write_date, 'yyyy-MM-dd HH:mm')}"}></td>
+					<td class="title"><a th:href="@{'/mobileTarget/view/'+${row.post_id}}" th:text="${row.title}"></a></td>
+					<td class="date" th:text="${#temporals.format(row.write_date, 'yyyy-MM-dd HH:mm')}"}></td>
 				</tr>
 			</table>
 		</div>

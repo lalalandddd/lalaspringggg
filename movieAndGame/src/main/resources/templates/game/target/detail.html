@@ -7,7 +7,7 @@
 </head>
 	<div layout:fragment="main" id="main">
 		<h2> 모바일 게임 공략 페이지 </h2>
-		<table th:object="${gameTargetMobileDTO}">           < 작 성 중 중 단 !!! >
+		<table th:object="${gameTargetMobileDTO}">
 			<tr>
 				<td>번호</td>
 				<td th:text="*{post_id}"></td>
@@ -21,14 +21,18 @@
 				<td th:text="*{writer}"></td>
 			</tr>
 			<tr>
+				<td>모바일게임이름</td>
+				<td th:text="*{game_name}"></td>
+			</tr>
+			<tr>
 				<td>내용</td>
-				<td th:text="*{target_post}"></td>
+				<td th:text="*{mtarget}"></td>
 			</tr>
 			<tr>
 				<td>작성일</td>
 				<td th:text="*{#temporals.format(write_date,'yyyy-MM-dd HH-mm')}"></td>
 			</tr>
 		</table>
-		<p> <a th:href="@{/gameReview/review}">게임톡톡 리뷰 메인화면</a> </p>
+		<p> <a th:href="@{/mobileTarget/mtarget}">게임톡톡 리뷰 메인화면</a> </p>
 	</div>
 </html>

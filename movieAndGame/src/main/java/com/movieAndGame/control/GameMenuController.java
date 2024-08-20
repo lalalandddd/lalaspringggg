@@ -39,14 +39,6 @@ public class GameMenuController {
 		model.addAttribute("gameReviewDTO",dto);
 		return "game/review/reviewWrite";
 	}
-	@GetMapping("/mobile")
-	public String mobile() {
-		return "game/target/index";
-	}
-	@GetMapping("/targetWrite")
-	public String mobileTargetWrite(Model model) {
-		return "game/target/targetWrite";
-	}
 	@GetMapping("/write")
 	public String gameReviewWrite(@Valid GameReviewDTO gameReviewDTO, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {

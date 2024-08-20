@@ -11,7 +11,4 @@
 	<select id="findById" resultType="com.movieAndGame.DTO.GameReviewDTO">
 		select * from game_review where review_id=#{id}
 	</select>
-	<select id="findAllMobile" resultType="com.movieAndGame.DTO.GameReviewDTO">
-		select * from mobile_game_target order by write_date desc;
-	</select>
 </mapper>

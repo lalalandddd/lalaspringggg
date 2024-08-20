@@ -34,8 +34,8 @@ public class MovieMenuController {
 			return "redirect:/movie/login";  // 로그인 페이지로 가라
 		}
 		MovieReviewDTO dto=new MovieReviewDTO();
-		String name=((MovieMemberDTO)session.getAttribute("user")).getName();
-		dto.setWriter(name);
+		String nick=((MovieMemberDTO)session.getAttribute("user")).getNick();
+		dto.setWriter(nick);
 		model.addAttribute("movieReviewDTO",dto);
 		return "movie/review/reviewWrite";
 	}

@@ -22,7 +22,7 @@
 					<span class="bookSort">생일</span>
 				</li>
 				<c:forEach var="member" items="${list }">
-					<li class="mlist">
+					<li class="blist">
 						<span class="bookTitle">
 							<a href="/mytest/member/userView?id=${member.userNb }">${member.userId }</a>
 						</span>

@@ -17,7 +17,7 @@
 </head>
 <body>
 	<form id="fm" method="get" action="/coffe/delete">
-	<input type="hidden" name="id" value="${coffe.coffeId }">
+	<input type="hidden" name="id" value="${coffee.coffeId }">
 		<div id="wrap">
 			<a href="/"> HOME </a><br>
 			<a href="/coffe"> === 커피 관리 페이지 === </a><br>
@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" id="modify2">수정</button>
+						<button type="button" id="modify">수정</button>
 						<button type="button" id="delete2" data-id="${coffee.coffeId }">삭제</button>
 					</td>
 				</tr>

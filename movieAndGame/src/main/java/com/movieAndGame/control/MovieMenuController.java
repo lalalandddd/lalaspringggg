@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.movieAndGame.DTO.MovieMemberDTO;
 import com.movieAndGame.DTO.MovieReviewDTO;
 import com.movieAndGame.service.MovieReviewService;
-
+d
 @Controller
 @RequestMapping("/movieMenu")
 public class MovieMenuController {

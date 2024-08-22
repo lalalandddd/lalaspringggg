@@ -5,6 +5,21 @@
 <title>Insert title here</title>
 </head>
 <style>
+#start{
+	position:fixed;
+	top:0;
+	left:1230px;
+	background:white;
+	border:2px solid black;
+	border-radius:5px;
+	text-align:center;
+	padding:3px 0;
+	margin:0 auto;
+	width:80px;
+	height:30px;
+	z-index:1000;
+	cursor:pointer;
+}
 table{
 	border:1px solid black;
 	border-radius:5px;
@@ -26,20 +41,56 @@ td{
 	font-weight:800;
 }
 .sname{ font-weight:600; }
+.want{ width:35%; }
+.how{ width:65%; }
 </style>
 <body>
-	<a th:href="@{/}"> 처음화면 </a><br>
+	<div id="start">
+		<a th:href="@{/}"> 처음화면 </a>
+	</div>
 	<h3> 중간프로젝트 프리뷰 </h3>
-	<h1> 프로젝트 명 : 도서관리 사이트 제작 </h1>
-	<p>
-	전체 프로젝트 기간 : 2024. 09. 02 ~ 2024. 09. 13<br>
-	프로젝트 계획 기간 : 2024. 09. 01<br>
-	프로젝트 요구사항 도출 및 화면 설계 : 2024. 09. 02<br>
-	프로젝트 구현 기간 : 2024. 09. 03 ~ 2024. 09. 12<br>
-	프로젝트 오픈 일정 : 2024. 09. 13<br>
-	프로젝트 기대 효과 : 도서관에서 도서 관리(도서 검색/추가/수정/삭제)의 편의성 증진<br>
-	
-	</p>
+	<h1> 프로젝트 명 : 도서관리 사이트 제작 </h1> <br>
+	<h3> 프로젝트 기간 </h3>
+	<table>
+		<thead>
+			<tr>
+				<td class="want"> 구분 </td>
+				<td class="how"> 기간 </td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="want"> 전체 프로젝트 기간 </td>
+				<td class="how"> 2024. 09. 02 ~ 2024. 09. 13 </td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="want"> 프로젝트 계획 기간 </td>
+				<td class="how"> ~2024. 09. 01(미리 준비) </td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="want"> 프로젝트 요구사항 도출 및 화면 설계 </td>
+				<td class="how"> 2024. 09. 02 </td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="want"> 프로젝트 구현 기간 </td>
+				<td class="how"> 2024. 09. 03 ~ 2024. 09. 12 </td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="want"> 프로젝트 오픈 일정 </td>
+				<td class="how"> 2024. 09. 13 </td>
+			</tr>
+		</tbody>
+	</table>
+	<h3> 프로젝트 기대 효과 </h3>
+	<p> 도서관에서 도서 관리(도서 검색/추가/수정/삭제)의 편의성 증진 </p>
 	<h3> 요구사항 정의 </h3>
 	<table>
 		<thead>
@@ -66,8 +117,16 @@ td{
 				<td class="how">도서 목록(페이징), 도서 검색 및 도서 세부 내용 화면</td>
 			</tr>
 			<tr>
-				<td class="want">도서관리 화면</td>
-				<td class="how"></td>
+				<td class="want">도서관리 기능</td>
+				<td class="how">도서 목록, 도서 상세 보기, 도서 검색, 도서 등록, 도서 수정, 도서 삭제</td>
+			</tr>
+			<tr>
+				<td class="want">도서 목록/검색 화면</td>
+				<td class="how">페이징 적용</td>
+			</tr>
+			<tr>
+				<td class="want">도서 상세 화면</td>
+				<td class="how">도서 등록, 수정, 삭제 화면 : 같은 화면 사용</td>
 			</tr>
 		</tbody>
 	</table>

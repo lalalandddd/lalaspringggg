@@ -11,4 +11,8 @@ public class LibraryController {
 	public String libraryhome() {
 		return "library";
 	}
+	@GetMapping("/manage")
+	public String bookManage() {
+		return "/manager/manager";
+	}
 }

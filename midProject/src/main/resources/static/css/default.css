@@ -5,6 +5,7 @@
 	padding:0;
 	box-sizing:border-box;
 }
+ul{ list-style-type:none; }
 #wrap{
 	width:1300px;
 	margin:0 auto;
@@ -57,7 +58,7 @@
 }
 #foot li{
 	padding:0 5px;
-	margin:0 5px;
+	margin:0 15px;
 	position:relative;
 }
 #banner ul{
@@ -73,4 +74,11 @@
 	color:black;
 	background:lightgreen;
 	cursor:pointer;
+}
+#info ul{
+	display:flex;
+	margin-left:20px;
+}
+#info ul p{
+	margin-right:40px;
 }

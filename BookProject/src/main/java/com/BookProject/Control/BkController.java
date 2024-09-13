@@ -102,6 +102,10 @@ public class BkController {
 		String sk3=rq.getParameter("searchKeyword3");
 		String st4=rq.getParameter("searchType4");
 		String sk4=rq.getParameter("searchKeyword4");
+		String stl1=convertToReadableLabel(st1);
+		String stl2=convertToReadableLabel(st2);
+		String stl3=convertToReadableLabel(st3);
+		String stl4=convertToReadableLabel(st4);
 		int pageSize=10;
 		Pageable pageable=PageRequest.of(page, pageSize);
 		if(sk1.isEmpty()&&sk2.isEmpty()&&sk3.isEmpty()&&sk4.isEmpty()) {
@@ -121,15 +125,24 @@ public class BkController {
 		model.addAttribute("books",books.getContent());
 		model.addAttribute("currentPage",page);
 		model.addAttribute("totalPages",books.getTotalPages());
-		model.addAttribute("st1",st1);
+		model.addAttribute("st1",stl1);
 		model.addAttribute("sk1",sk1);
-		model.addAttribute("st2",st2);
+		model.addAttribute("st2",stl2);
 		model.addAttribute("sk2",sk2);
-		model.addAttribute("st3",st3);
+		model.addAttribute("st3",stl3);
 		model.addAttribute("sk3",sk3);
-		model.addAttribute("st4",st4);
+		model.addAttribute("st4",stl4);
 		model.addAttribute("sk4",sk4);
 		return "book/results";
+	}
+	private String convertToReadableLabel(String st) {
+		switch(st) {
+		case "btitl": return "책 제목";
+		case "bwrit": return "지은이";
+		case "bpubl": return "출판사";
+		case "bsort": return "저자";
+		default: return "";
+		}
 	}
 	@GetMapping("/write")
 	public String write(Model model){

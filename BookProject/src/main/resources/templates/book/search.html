@@ -51,17 +51,14 @@
 			<button type="submit">검색</button>
 		</form>
 	</div>
-	
-	
-		<form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
+<!-- 		<form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
 			책 제목 : <input type="text" th:field="*{btitl}"><br>
 			지은이 : <input type="text" th:field="*{bwrit}"><br>
 			출판사 : <input type="text" th:field="*{bpubl}"><br>
 			분류 : <input type="text" th:field="*{bsort}"><br>
 			<button>검색</button>
 		</form>
-
-		<!-- 첫 번째 검색 폼: 검색 기준을 선택하여 검색 -->
+		첫 번째 검색 폼: 검색 기준을 선택하여 검색
     <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
         <label for="searchType1">검색 기준</label>
         <select id="searchType1" name="searchType" th:field="*{searchType}">
@@ -75,8 +72,7 @@
         <button type="submit">검색</button>
     </form>
     <br>
-
-    <!-- 두 번째 검색 폼: 검색 기준을 선택하여 검색 -->
+    두 번째 검색 폼: 검색 기준을 선택하여 검색
     <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
         <label for="searchType2">검색 기준</label>
         <select id="searchType2" name="searchType" th:field="*{searchType}">
@@ -90,8 +86,7 @@
         <button type="submit">검색</button>
     </form>
     <br>
-
-    <!-- 세 번째 검색 폼: 검색 기준을 선택하여 검색 -->
+    세 번째 검색 폼: 검색 기준을 선택하여 검색
     <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
         <label for="searchType3">검색 기준</label>
         <select id="searchType3" name="searchType" th:field="*{searchType}">
@@ -105,8 +100,7 @@
         <button type="submit">검색</button>
     </form>
     <br>
-
-    <!-- 네 번째 검색 폼: 검색 기준을 선택하여 검색 -->
+    네 번째 검색 폼: 검색 기준을 선택하여 검색
     <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
         <label for="searchType4">검색 기준</label>
         <select id="searchType4" name="searchType">
@@ -118,8 +112,6 @@
         <label for="searchKeyword4">검색어</label>
         <input type="text" id="searchKeyword4" name="searchKeyword" placeholder="검색어 입력">
         <button type="submit">검색</button>
-    </form>
-	
-	
+    </form> -->
 </html>
 

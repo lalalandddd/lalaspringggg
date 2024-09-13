@@ -145,9 +145,8 @@ public class BkController {
 		if(!file.isEmpty()) {
 			try {
 				byte[] fileData=file.getBytes();
-				uploadPath="C:/lalalandddd/bookimage";
+				uploadPath="src/main/resources/static/image/bimg/";
 				saveName=fileService.uploadFile(uploadPath, file.getOriginalFilename(), fileData);
-//				saveName=fileService.uploadFile(uploadPath, file.getOriginalFilename(), MultipartFile.getBytes());
 				fileUrl="/image/"+saveName;
 				bkDTO.setBurl(fileUrl);
 				bkDTO.setFilename(saveName);
@@ -181,12 +180,15 @@ public class BkController {
 	@PostMapping("/update")
 	public String update(@ModelAttribute BkDTO bkDTO, @RequestParam("bimg") MultipartFile file, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) { return "book/write"; }
+		String uploadPath="";
+		String saveName="";
+		String fileUrl="";
 		if(!file.isEmpty()) {
 			try {
 				byte[] fileData=file.getBytes();
-				String uploadPath="C:/lalalandddd/bookimage";
-				String saveName=fileService.uploadFile(uploadPath, file.getOriginalFilename(), fileData);
-				String fileUrl="/image/"+saveName;
+				uploadPath="src/main/resources/static/image/bimg/";
+				saveName=fileService.uploadFile(uploadPath, file.getOriginalFilename(), fileData);
+				fileUrl="/image/"+saveName;
 				bkDTO.setBurl(fileUrl);
 				bkDTO.setFilename(saveName);
 			}catch(Exception e) {

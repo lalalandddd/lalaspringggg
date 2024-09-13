@@ -25,9 +25,13 @@
 					<td class="tdhead">부제</td>
 					<td class="data"><input class="input" type="text" th:field="*{bsubt}"></td>
 				</tr>
-				<tr>
+				<tr class="numline">
 					<td class="tdhead">권수</td>
-					<td class="data"><input class="input" type="number" th:field="*{bvolu}" min=1></td>
+					<td class="data"><input class="input sinput" type="number" th:field="*{bvolu}" min=1></td>
+					<td class="tdhead">페이지</td>
+					<td class="data"><input class="input sinput" type="number" th:field="*{bpage}" min=1></td>
+					<td class="tdhead">가격</td>
+					<td class="data"><input class="input sinput" type="number" th:field="*{bpric}" min=1000></td>
 				</tr>
 				<tr>
 					<td class="tdhead">지은이</td>
@@ -46,16 +50,8 @@
 					<td class="data"><input class="input" type="text" th:field="*{bpubl}"></td>
 				</tr>
 				<tr>
-					<td class="tdhead">페이지</td>
-					<td class="data"><input class="input" type="number" th:field="*{bpage}" min=1></td>
-				</tr>
-				<tr>
 					<td class="tdhead">발행일</td>
 					<td class="data"><input class="input" type="text" th:field="*{bdate}"></td>
-				</tr>
-				<tr>
-					<td class="tdhead">가격</td>
-					<td class="data"><input class="input" type="number" th:field="*{bpric}" min=1000></td>
 				</tr>
 				<tr>
 					<td class="tdhead">분류</td>

@@ -1,0 +1,25 @@
+/* view.css */
+@charset "UTF-8";
+#searchKeyword {
+	font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+#searchKeyword p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+#searchKeyword p:before {
+    content: ' ';
+}
+#searchKeyword p:after {
+    content: ' ';
+}
+#searchKeyword p:first-child {
+    font-weight: bold;
+}
+#searchKeyword p:last-child {
+    font-weight: bold;
+}

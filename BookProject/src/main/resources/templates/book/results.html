@@ -2,16 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
 <head>
 	<title layout:fragment="title"></title>
-	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/results.css}">
+	</th:block>
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
 		<h2> 도서 검색 결과 페이지 </h2>
-		<p> 검색 키워드 </p>
-		<p th:if="${sk1!=''}" th:text="${st1}+' : '+${sk1}"></p>
-		<p th:if="${sk2!=''}" th:text="${st2}+' : '+${sk2}"></p>
-		<p th:if="${sk3!=''}" th:text="${st3}+' : '+${sk3}"></p>
-		<p th:if="${sk4!=''}" th:text="${st4}+' : '+${sk4}"></p>
+		<div id="searchKeyword">
+			<p> 검색 키워드 ( </p>
+			<p th:if="${sk1 !=''}" th:text="${stl1}+' : '+${sk1}"></p>
+			<p th:if="${sk1 !='' && (sk2 !='' || sk3 !='' || sk4 !='')}"> / </p>
+			<p th:if="${sk2 !=''}" th:text="${stl2}+' : '+${sk2}"></p>
+			<p th:if="${sk2 !='' && (sk3 !='' || sk4 !='')}"> / </p>
+			<p th:if="${sk3 !=''}" th:text="${stl3}+' : '+${sk3}"></p>
+			<p th:if="${sk3 !='' && sk4 !=''}"> / </p>
+			<p th:if="${sk4 !=''}" th:text="${stl4}+' : '+${sk4}"></p>
+			<p> ) </p>
+		</div>
 		<div>
 			<table>
 				<thead>
@@ -47,7 +55,7 @@
 					<a th:href="@{|/searchkeyword?page=${i}&searchType1=${st1}&searchKeyword1=${sk1}&searchType2=${st2}&searchKeyword2=${sk2}&searchType3=${st3}&searchKeyword3=${sk3}&searchType4=${st4}&searchKeyword4=${sk4}|}" th:text="${i+1}" th:classappend="${i==currentPage} ? 'active' : ''"></a>
 				</li>
 				<li th:if="${currentPage<totalPages-1}">
-					<a th:href="@{|searchkeyword?page=${currentPage+1}&searchType1=${st1}&searchKeyword1=${sk1}&searchType2=${st2}&searchKeyword2=${sk2}&searchType3=${st3}&searchKeyword3=${sk3}&searchType4=${st4}&searchKeyword4=${sk4}|}">다음</a>
+					<a th:href="@{|/searchkeyword?page=${currentPage+1}&searchType1=${st1}&searchKeyword1=${sk1}&searchType2=${st2}&searchKeyword2=${sk2}&searchType3=${st3}&searchKeyword3=${sk3}&searchType4=${st4}&searchKeyword4=${sk4}|}">다음</a>
 				</li>
 			</ul>
 		</div>

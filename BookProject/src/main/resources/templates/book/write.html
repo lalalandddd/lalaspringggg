@@ -12,6 +12,12 @@
 		<form method="post" action="/write" th:object="${bkDTO}" enctype="multipart/form-data">
 			<table>
 				<tr>
+					<td>
+						<p th:if="${bsave!=null && bsave!=''}" th:text="${bsave}" style="color:green;"></p>
+						<p th:if="${check!=null && check!=''}" th:text="${false}" style="color:red;"></p>
+					</td>
+				</tr>
+				<tr>
 					<td class="tdhead">책제목</td>
 					<td class="data"><input class="input" type="text" th:field="*{btitl}"></td>
 				</tr>

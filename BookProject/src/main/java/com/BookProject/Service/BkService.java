@@ -22,19 +22,28 @@ import com.BookProject.Repository.BkRepository;
 public class BkService {
 	@Autowired
 	private BkRepository bkRepository;
-	public void bookSave(BkDTO bkDTO) {
+	public boolean bookSave(BkDTO bkDTO) {
+		if(bkRepository.existsByBtitlAndBvolu(bkDTO.getBtitl(), bkDTO.getBvolu())) { return false; }
 		Bk bk=convertDTOToEntity(bkDTO);
-		if(bk!=null) {
-			bkRepository.save(bk);
-		}
+		if(bk!=null) { bkRepository.save(bk); }
+		return true;
 	}
 	public List<Bk> findAllBooks(){ return bkRepository.findAll(); }
-	public BkDTO findById(Long bid) {
+	public Optional<BkDTO> findById(Long bid) {
 		Optional<Bk> optionalBk=bkRepository.findById(bid);
-		if(optionalBk.isPresent()) {
-			return convertEntityToDTO(optionalBk.get());
-		}
-		return null;
+		return optionalBk.map(this::convertEntityToDTO);
+	}
+	public Long findNextValidBid(Long bid) {
+		return bkRepository.findNextValidBid(bid);
+	}
+	public Long findPreviousValidBid(Long bid) {
+		return bkRepository.findPreviousValidBid(bid);
+	}
+	public Long findMinBid() {
+		return bkRepository.findMinBid();
+	}
+	public Long findMaxBid() {
+		return bkRepository.findMaxBid();
 	}
 	@Transactional
 	public void delete(Long bid) { bkRepository.deleteById(bid); }
@@ -100,54 +109,6 @@ public class BkService {
 		BkDTO bkDTO = BkDTO.of(bkSearchDTO.getBtitl());
 		return bkDTO;
 	}
-//	public List<BkDTO> searchBooks(BkSearchDTO bkSearchDTO) {
-//		String btitl=bkSearchDTO.getBtitl()==null ? "" : bkSearchDTO.getBtitl();
-//		String bwrit=bkSearchDTO.getBwrit()==null ? "" : bkSearchDTO.getBwrit();
-//		String bpubl=bkSearchDTO.getBpubl()==null ? "" : bkSearchDTO.getBpubl();
-//		String bsort=bkSearchDTO.getBsort()==null ? "" : bkSearchDTO.getBsort();
-//		List<Bk> books = bkRepository.findByBtitlContainingIgnoreCaseAndBwritContainingIgnoreCaseAndBpublContainingIgnoreCaseAndBsortContainingIgnoreCase(btitl, bwrit, bpubl, bsort);
-//		return books.stream()
-//				.map(this::convertEntityToDTO)
-//				.collect(Collectors.toList());
-//	}
-//	public List<BkDTO> searchBtitl(String btitl){
-//		return bkRepository.findByBtitlContainingIgnoreCase(btitl).stream()
-//				.map(this::convertEntityToDTO)
-//				.collect(Collectors.toList());
-//	}
-//	public List<BkDTO> searchBwrit(String bwrit){
-//		return bkRepository.findByBwritContainingIgnoreCase(bwrit).stream()
-//				.map(this::convertEntityToDTO)
-//				.collect(Collectors.toList());
-//	}
-//	public List<BkDTO> searchBpubl(String bpubl){
-//		return bkRepository.findByBpublContainingIgnoreCase(bpubl).stream()
-//				.map(this::convertEntityToDTO)
-//				.collect(Collectors.toList());
-//	}
-//	public List<BkDTO> searchBsort(String bsort){
-//		return bkRepository.findByBsortContainingIgnoreCase(bsort).stream()
-//				.map(this::convertEntityToDTO)
-//				.collect(Collectors.toList());
-//	}
-//	public List<BkDTO> searchBooks(String st, String sk) {
-//        List<Bk> books;
-//        switch (st) {
-//            case "btitl":
-//                books=bkRepository.findByBtitlContainingIgnoreCase(sk); break;
-//            case "bwrit":
-//                books=bkRepository.findByBwritContainingIgnoreCase(sk); break;
-//            case "bpubl":
-//                books=bkRepository.findByBpublContainingIgnoreCase(sk); break;
-//            case "bsort":
-//                books=bkRepository.findByBsortContainingIgnoreCase(sk); break;
-//            default:
-//                books=Collections.emptyList();
-//        }
-//        return books.stream()
-//                    .map(this::convertEntityToDTO)
-//                    .collect(Collectors.toList());
-//    }
 	public Page<BkDTO> searchBooksByMultipleCriteria(String st1, String sk1, String st2, String sk2, String st3, String sk3, String st4, String sk4, Pageable pageable){
 		String titl=null, writ=null, publ=null, sort=null;
 		if(st1!=null&&!sk1.isBlank()) {
@@ -176,9 +137,5 @@ public class BkService {
 		}
 		Page<Bk> books=bkRepository.findByMultipleCriteria(titl,writ,publ,sort,pageable);
 		return books.map(this::convertEntityToDTO);
-//		return books.stream()
-//				.map(this::convertEntityToDTO)
-//				.distinct()
-//				.collect(Collectors.toList());
 	}
 }

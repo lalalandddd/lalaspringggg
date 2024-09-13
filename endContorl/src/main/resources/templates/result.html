@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 여행지 패키지 </h2>
+	<p th:text="'여행상품 번호 : '+${info.travelId}"></p>
+	<p th:text="'여행상품 가격 : '+${info.ticketPrice}+'원'"></p>
+	<p th:text="'여행 패키지 이름 : '+${info.travelPackage}"></p>
+</body>
+</html>

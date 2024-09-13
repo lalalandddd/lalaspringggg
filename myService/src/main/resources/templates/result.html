@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 도서 검색 결과 </h2>
+		<p th:text="${'책 제목 : '+book.title}"></p>
+		<p th:text="${'책 저자 : '+book.writer}"></p>
+		<p th:text="${'출간 해 : '+book.year}"></p>
+		<p th:text="${'페이지 : '+book.page}"></p>
+</body>
+</html>

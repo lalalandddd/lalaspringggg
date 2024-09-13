@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
+<head>
+	<title layout:fragment="title">5조도서관</title>
+	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="script">
+		<script src="/js/view.js"></script>
+		<script>
+			inputType=["text","file"]
+			inputName=["btitl","bimg"]
+		</script>
+	</th:block>
+</head>
+	<div layout:fragment="main" id="main">
+		<h2> 도서 상세 내용 확인 페이지 </h2>
+		<form id="fm" method="get" action="/library/delete" th:object="${bkDTO}">
+		<input type="hidden" name="bid" value="*{bid}">
+			<table>
+				<tr>
+					<td class="tdhead">책 제목</td>
+					<td class="data" th:text="*{btitl}"></td>
+				</tr>
+				<tr>
+					<td class="tdhead">표지</td>
+					<td class="data">
+						<img th:src="@{${bkDTO.burl}}" th:alt="*{burl}"  style="max-width:300px;" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="button" id="modify"> 수정 </button>
+						<button type="button" id="delete" data-bid="${bkDTO.bid}"> 삭제 </button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<a href="/library/index"> 도서 목록 </a>
+	</div>
+</html>

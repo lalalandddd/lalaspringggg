@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
+<head>
+	<title layout:fragment="title"></title>
+	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="script"></th:block>
+</head>
+	<div layout:fragment="main" id="main">
+		<h2 id="title"> 도서 등록 페이지 </h2>
+		<form method="post" action="/write" th:object="${bkDTO}" enctype="multipart/form-data">
+			책제목 : <input type="text" th:field="*{btitl}"><br>
+			표지 이미지 : <input type="file" th:field="*{bimg}"><br>
+			<button type="submit">작성</button>
+		</form>
+	</div>
+</html>

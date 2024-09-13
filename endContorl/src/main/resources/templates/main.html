@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Travel</title>
+</head>
+<body>
+	<h3> 여행을 한다면 어디로 가고 싶나? </h3>
+	<p th:text="${myId}+'회원'"></p>
+	<h3> 여행지를 입력하세용? </h3>
+	<form method="post" action="/search">
+		여행지 : <input type="text" name="place" placeholder="어디갈래? 답정너"><br>
+		<button>입력</button>
+	</form>
+</body>
+</html>

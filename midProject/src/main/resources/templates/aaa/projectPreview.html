@@ -96,13 +96,37 @@ td{
 	<p> 도서 관리용 도서 데이터베이스 구축 </p>
 	<p> 도서 관리용 목록 확인, 검색, 추가, 수정, 삭제 서비스 제공 </p><br>
 	<h3> 1.4 프로젝트 기대 효과 </h3>
-	<p> 도서관에서 도서 관리(도서 검색/추가/수정/삭제)의 편의성 증진 </p><br>
+	<p> 도서관에서 도서 관리<b>(도서 검색/추가/수정/삭제)</b>의 편의성 증진 </p><br>
 	<h2> 2. 프로젝트 범위 </h2>
 	<h3> 2.1 작업명세서 </h3>
-	<p> ??? </p><br>
+	<p> 시스템 설계 : 필요 서비스 설계 </p>
+	<p> 시스템 개발 : 서비스 application 개발 </p>
+	<p> 시스템 테스트 : 서비스 단위 테스트 수행 </p>
+	<p> 시스템 안정화 : 시스템 안정화 지원 </p><br>
 	<h2> 3. 시스템 구축 환경 </h2>
 	<h3> 3.1 하드웨어 구성도 </h3>
-	<p> ??? </p><br>
+	<table>
+		<thead>
+			<tr>
+				<td class="sname">하드웨어</td>
+				<td class="sver">시스템정보</td>
+				<td class="sver">비고</td>
+				<td class="sname">하드웨어</td>
+				<td class="sver">시스템정보</td>
+				<td class="sver">비고</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="sname">DW Computer 1~3</td>
+				<td class="sver">window 10 Home</td>
+				<td class="sver">제공 서비스 제작</td>
+				<td class="sname">DW Server</td>
+				<td class="sver">-</td>
+				<td class="sver">데이터베이스 구축 여부 확인</td>
+			</tr>
+		</tbody>
+	</table><br>
 	<h3> 3.2 소프트웨어 구성도 </h3>
 	<h3> 소프트웨어 구성도 </h3>
 	<table>
@@ -144,7 +168,7 @@ td{
 			<tr>
 				<td class="sname">html</td>
 				<td class="sver">-</td>
-				<td class="sname">css</td>
+				<td class="sname">Spring Tool Suite 4</td>
 				<td class="sver">-</td>
 				<td class="sname">windows</td>
 				<td class="sver">10 Home</td>
@@ -160,36 +184,37 @@ td{
 			<tr>
 				<td class="sname">DBeaber</td>
 				<td class="sver">-</td>
-				<td class="sname"></td>
-				<td class="sver"></td>
+				<td class="sname">빌드툴</td>
+				<td class="sver">maven</td>
 				<td class="sname"></td>
 				<td class="sver"></td>
 			</tr>
 		</tbody>
-	</table>
+	</table><br>
 	<h2> 4. 프로젝트 추진 체계 </h2>
 	<h3> 4.1 프로젝트 수행 조직도 </h3>
-	<p> ??? </p><br>
+	<p> 5조 이연상, 김경제, 송영진 </p><br>
 	<h3> 4.2 조직 별 역할 </h3>
-	<p> ??? </p><br>
+	<p> 이연상 : 주요 페이지 구성, 변수 및 클래스 명칭 정의, 페이지 제작, 검수 등 </p>
+	<p> 김경제, 송영진 : 페이지 제작, 검수 등 </p><br>
 	<h3> 4.3 인력투입 계획 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 	<h2> 5. 관리 프로세스 계획 </h2>
 	<h3> 5.1 작업 계획 </h3>
-	<p> ??? </p><br>
+	<p> 2024. 09. 03 ~ 2024. 09. 12 기간 동안 작업 예정 </p><br>
 	<h3> 5.2 통제 계획 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 	<h3> 5.3 산출물 검수 계획 </h3>
-	<p> ??? </p><br>
+	<p> 2024. 09. 13 제작한 페이지에서 가능한 모든 요청을 실행하고 발생한 오류를 수정 </p><br>
 	<h2> 6. 프로젝트 관리 </h2>
 	<h3> 6.1 프로젝트 보고 계획 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 	<h3> 6.2 위험관리 방안 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 	<h3> 6.3 이슈 및 변경 관리 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 	<h3> 6.4 테스트 방안 </h3>
-	<p> ??? </p><br>
+	<p> - </p><br>
 
 
 	<h3> 요구사항 정의 </h3>
@@ -201,7 +226,7 @@ td{
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+<!--  			<tr>
 				<td class="want">관리자 화면 디자인</td>
 				<td class="how">관리자 목록 확인 및 관리자 관리화면</td>
 			</tr>
@@ -212,7 +237,7 @@ td{
 			<tr>
 				<td class="want">관리자 글쓰기</td>
 				<td class="how">2~3등급 관리자 : 관리자 게시판 조회/글쓰기/내용변경/삭제 가능</td>
-			</tr>
+			</tr>-->
 			<tr>
 				<td class="want">도서관리 화면 디자인</td>
 				<td class="how">도서 목록(페이징), 도서 검색 및 도서 세부 내용 화면</td>
@@ -250,7 +275,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">mngid</td>
 				<td class="mean">관리자 아이디</td>
-				<td class="aaa">8~15자 사이의 영어 대소문자, 숫자만</td>
+				<td class="aaa">필수</td>
 			</tr>
 			<tr>
 				<td class="dto">MngDTO</td>
@@ -258,7 +283,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">mngpw</td>
 				<td class="mean">관리자 암호</td>
-				<td class="aaa">8~15자 사이의 영어 대소문자, 숫자만</td>
+				<td class="aaa">8~15자 영어 대소문자, 숫자만</td>
 			</tr>
 			<tr>
 				<td class="dto">MngDTO</td>
@@ -266,15 +291,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">mngname</td>
 				<td class="mean">관리자 이름</td>
-				<td class="aaa">최대 20자</td>
-			</tr>
-			<tr>
-				<td class="dto">MngDTO</td>
-				<td class="type">int</td>
-				<td class="db">int</td>
-				<td class="name">mnggrade</td>
-				<td class="mean">관리자 등급</td>
-				<td class="aaa">1등급(단순 도서 관리) 2등급(게시판 사용 가능) 3등급(관리자 추가/삭제 가능)</td>
+				<td class="aaa">자기 이름</td>
 			</tr>
 			<tr>
 				<td class="dto">BkDTO</td>
@@ -322,7 +339,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">bkeyw</td>
 				<td class="mean">주제어</td>
-				<td class="aaa">도서 검색용 단어</td>
+				<td class="aaa">도서 검색 단어</td>
 			</tr>
 			<tr>
 				<td class="dto">BkDTO</td>
@@ -330,7 +347,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">bpubl</td>
 				<td class="mean">출판사</td>
-				<td class="aaa">최대 20자</td>
+				<td class="aaa">-</td>
 			</tr>
 			<tr>
 				<td class="dto">BkDTO</td>
@@ -362,7 +379,7 @@ td{
 				<td class="db">varchar(20)</td>
 				<td class="name">bsort</td>
 				<td class="mean">분류</td>
-				<td class="aaa">분류 (소설/만화/위인전/사전/카탈로그/잡지/철학/신문/등)</td>
+				<td class="aaa">소설/만화/위인전/사전/카탈로그/잡지/철학/신문/등</td>
 			</tr>
 			<tr>
 				<td class="dto">BkDTO</td>
@@ -382,5 +399,7 @@ td{
 			</tr>
 		</tbody>
 	</table>
+	<h3> Library DTO 구성 </h3>
+	<img href="">
 </body>
 </html>

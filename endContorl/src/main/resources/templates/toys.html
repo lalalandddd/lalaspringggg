@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 이 장난감을 원하는가? </h2>
+	<p th:text="'장난감명 :'+${toysDTO.toyName}"></p>
+	<p th:text="'가격 : '+${toysDTO.toyPrice}"></p>
+	<p th:text="'나이 : '+${toysDTO.age}+'세'"></p>
+	<p th:text="'설명 : '+${toysDTO.toyText}"></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 입력한 투수 이름 </h2>
+	<p th:each="data : ${data}">
+		<b th:text="${'이름 : '+data.name}"></b>
+		<b th:text="${'실점 : '+data.lostPoint}"></b>
+		<b th:text="${'탈삼진 : '+data.strikeOut}"></b>
+		<b th:text="${'평균자책점 : '+data.avgEarnedRun}"></b>
+	</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 내이름을 입력해 </h2>
+	<form method="get" action="/myage" th:object="${mynameDTO}">
+		내이름? <input type="text" th:field="*{myname}">
+		<button>입력</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> 제품 데이터 확인 페이지 </h1>
+	<table th:object="${Product}">
+		<tr>
+			<td th:text="'제품 이름 : '+*{pName}"></td>
+			<td th:text="'제품 가격 : '+*{pCost}"></td>
+			<td th:text="'제품 브랜드 : '+*{pBrand}"></td>
+		</tr>
+	</table>
+	
+</body>
+</html>

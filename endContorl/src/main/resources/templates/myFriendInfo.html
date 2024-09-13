@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>MYFRIENDINFO</title>
+</head>
+<body>
+	<h2> MYFRIENDINFO </h2>
+	<p th:text="${friend.fName}"></p>
+	<p th:text="${friend.fGender}"></p>
+	<p th:text="${friend.fYear}+'년'"></p>
+	<a href="/home"> 입력페이지 이동 링크 </a>
+</body>
+</html>

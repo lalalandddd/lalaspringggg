@@ -135,7 +135,7 @@ public class BkService {
 			if(st4.equals("bpubl")) publ=sk4;
 			if(st4.equals("bsort")) sort=sk4;
 		}
-		Page<Bk> books=bkRepository.findByMultipleCriteria(titl,writ,publ,sort,pageable);
+		Page<Bk> books=bkRepository.findByMultipleCriteria(titl,writ,publ,sort, pageable);
 		return books.map(this::convertEntityToDTO);
 	}
 }

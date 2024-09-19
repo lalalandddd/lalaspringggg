@@ -10,12 +10,16 @@ public class WebConfig implements WebMvcConfigurer{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/css/**")
 				.addResourceLocations("classpath:/static/css/")
-				.setCachePeriod(3600);
+				.setCachePeriod(360);
 		registry.addResourceHandler("/js/**")
 				.addResourceLocations("classpath:/static/js/")
-				.setCachePeriod(3600);
+				.setCachePeriod(360);
 		registry.addResourceHandler("/image/**")
 				.addResourceLocations("classpath:/static/image/bimg/")
-				.setCachePeriod(3600);
+				.addResourceLocations("classpath:/static/image/")
+				.setCachePeriod(360);
+//		registry.addResourceHandler("/image/**")
+//				.addResourceLocations("classpath:/static/image/")
+//				.setCachePeriod(360);
 	}
 }

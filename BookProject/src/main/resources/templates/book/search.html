@@ -6,11 +6,10 @@
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<h2> 도서 검색 페이지 </h2>
+		<h2 style="text-align:center"> 도서 검색 페이지 </h2>
 		<script th:if="${alertMessage != null}" th:inline="javascript">
 		alert([[${alertMessage}]]);
 		</script>
-
 		<form method="get" action="/searchkeyword"> <!-- th:object="${bkSearchDTO}" -->
 			<label for="searchType1">검색 기준 1</label>
 			<select id="searchType1" name="searchType1"> <!-- th:field="*{searchType}"> -->
@@ -19,8 +18,7 @@
 				<option value="bpubl">출판사</option>
 				<option value="bsort">분류</option>
 			</select>
-			<input type="text" id="searchKeyword1" name="searchKeyword1" placeholder="검색어 입력"><br> <!-- th:field="*{searchKeyword}"  -->
-
+			<input type="text" id="searchKeyword1" name="searchKeyword1" placeholder="검색어 입력"><br>
 			<label for="searchType2">검색 기준 2</label>
 			<select id="searchType2" name="searchType2"> <!-- th:field="*{searchType}"> -->
 				<option value="btitl">책 제목</option>
@@ -29,7 +27,6 @@
 				<option value="bsort">분류</option>
 			</select>
 			<input type="text" id="searchKeyword2" name="searchKeyword2" placeholder="검색어 입력"><br>
-
 			<label for="searchType3">검색 기준 3</label>
 			<select id="searchType3" name="searchType3"> <!-- th:field="*{searchType}"> -->
 				<option value="btitl">책 제목</option>
@@ -38,7 +35,6 @@
 				<option value="bsort">분류</option>
 			</select>
 			<input type="text" id="searchKeyword3" name="searchKeyword3" placeholder="검색어 입력"><br>
-
 			<label for="searchType4">검색 기준 4</label>
 			<select id="searchType4" name="searchType4"> <!-- th:field="*{searchType}"> -->
 				<option value="btitl">책 제목</option>
@@ -47,71 +43,8 @@
 				<option value="bsort" selected>분류</option>
 			</select>
 			<input type="text" id="searchKeyword4" name="searchKeyword4" placeholder="검색어 입력"><br>
-
 			<button type="submit">검색</button>
 		</form>
 	</div>
-<!-- 		<form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
-			책 제목 : <input type="text" th:field="*{btitl}"><br>
-			지은이 : <input type="text" th:field="*{bwrit}"><br>
-			출판사 : <input type="text" th:field="*{bpubl}"><br>
-			분류 : <input type="text" th:field="*{bsort}"><br>
-			<button>검색</button>
-		</form>
-		첫 번째 검색 폼: 검색 기준을 선택하여 검색
-    <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
-        <label for="searchType1">검색 기준</label>
-        <select id="searchType1" name="searchType" th:field="*{searchType}">
-            <option value="btitl">책 제목</option>
-            <option value="bwrit">지은이</option>
-            <option value="bpubl">출판사</option>
-            <option value="bsort">분류</option>
-        </select>
-        <label for="searchKeyword1">검색어</label>
-        <input type="text" id="searchKeyword1" name="searchKeyword" th:field="*{searchKeyword}" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-    </form>
-    <br>
-    두 번째 검색 폼: 검색 기준을 선택하여 검색
-    <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
-        <label for="searchType2">검색 기준</label>
-        <select id="searchType2" name="searchType" th:field="*{searchType}">
-            <option value="btitl">책 제목</option>
-            <option value="bwrit">지은이</option>
-            <option value="bpubl">출판사</option>
-            <option value="bsort">분류</option>
-        </select>
-        <label for="searchKeyword2">검색어</label>
-        <input type="text" id="searchKeyword2" name="searchKeyword" th:field="*{searchKeyword}" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-    </form>
-    <br>
-    세 번째 검색 폼: 검색 기준을 선택하여 검색
-    <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
-        <label for="searchType3">검색 기준</label>
-        <select id="searchType3" name="searchType" th:field="*{searchType}">
-            <option value="btitl">책 제목</option>
-            <option value="bwrit">지은이</option>
-            <option value="bpubl">출판사</option>
-            <option value="bsort">분류</option>
-        </select>
-        <label for="searchKeyword3">검색어</label>
-        <input type="text" id="searchKeyword3" name="searchKeyword" th:field="*{searchKeyword}" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-    </form>
-    <br>
-    네 번째 검색 폼: 검색 기준을 선택하여 검색
-    <form method="get" action="/searchkeyword" th:object="${bkSearchDTO}">
-        <label for="searchType4">검색 기준</label>
-        <select id="searchType4" name="searchType">
-            <option value="btitl">책 제목</option>
-            <option value="bwrit">지은이</option>
-            <option value="bpubl">출판사</option>
-            <option value="bsort">분류</option>
-        </select>
-        <label for="searchKeyword4">검색어</label>
-        <input type="text" id="searchKeyword4" name="searchKeyword" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-    </form> -->
 </html>
 

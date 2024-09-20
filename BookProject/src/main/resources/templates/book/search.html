@@ -6,7 +6,7 @@
 	<th:block layout:fragment="script"></th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<h2 style="text-align:center"> 도서 검색 페이지 </h2>
+		<h2 style="text-align:center"> 도서 검색 페이지 </h2><br>
 		<script th:if="${alertMessage != null}" th:inline="javascript">
 		alert([[${alertMessage}]]);
 		</script>

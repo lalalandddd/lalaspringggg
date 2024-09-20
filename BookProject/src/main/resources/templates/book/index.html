@@ -3,10 +3,12 @@
 <head>
 	<title layout:fragment="title">도서관리화면</title>
 	<th:block layout:fragment="css"></th:block>
-	<th:block layout:fragment="script"></th:block>
+	<th:block layout:fragment="script">
+		<script src="/js/view.js"></script>
+	</th:block>
 </head>
 	<div layout:fragment="main" id="main">
-		<h1 style="text-align:center">도서 관리 페이지</h1>
+		<h2 style="text-align:center">도서 관리 페이지</h2><br>
 		<div>
 			<table>
 				<thead>
@@ -21,14 +23,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="book : ${bookList}">
+					<tr th:each="book : ${bookList}" class="bview" th:attr="data-bid=${book.bid}">
 						<td class="burl"> <img th:src="@{${book.burl}}" th:alt="${book.btitl}" style="max-width:80px; max-height:80px;" /> </td>
-						<td class="btitl"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.btitl}"></a> </td>
-						<td class="bsubt"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.bsubt}"></a> </td>
-						<td class="bvolu"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.bvolu}"></a> </td>
-						<td class="bwrit"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.bwrit}"></a> </td>
-						<td class="bpubl"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.bpubl}"></a> </td>
-						<td class="bsort"> <a th:href="@{'/view/'+${book.bid}}" th:text="${book.bsort}"></a> </td>
+						<td class="btitl" th:text="${book.btitl}"></td>
+						<td class="bsubt" th:text="${book.bsubt}"></td>
+						<td class="bvolu" th:text="${book.bvolu}"></td>
+						<td class="bwrit" th:text="${book.bwrit}"></td>
+						<td class="bpubl" th:text="${book.bpubl}"></td>
+						<td class="bsort" th:text="${book.bsort}"></td>
 					</tr>
 				</tbody>
 			</table>

@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -63,29 +64,25 @@ public class BkController {
 			return "redirect:/search";
 		}
 		int pageSize=10;
-		Pageable pageable=PageRequest.of(page, pageSize);
+		Pageable pageable=PageRequest.of(page, pageSize, Sort.by("bid").descending());
 		Page<BkDTO> books=bkService.searchBooksByMultipleCriteria(st1, sk1, st2, sk2, st3, sk3, st4, sk4, pageable);
 		if(books.isEmpty()) {
 			ra.addFlashAttribute("alertMessage","검색 결과가 없습니다");
 			return "redirect:/search";
 		}
-		String stl1=convertToReadableLabel(st1);
-		String stl2=convertToReadableLabel(st2);
-		String stl3=convertToReadableLabel(st3);
-		String stl4=convertToReadableLabel(st4);
 		model.addAttribute("books",books.getContent());
 		model.addAttribute("currentPage",page);
 		model.addAttribute("totalPages",books.getTotalPages());
-		model.addAttribute("stl1",stl1);
+		model.addAttribute("stl1",convertToReadableLabel(st1));
 		model.addAttribute("st1",st1);
 		model.addAttribute("sk1",sk1);
-		model.addAttribute("stl2",stl2);
+		model.addAttribute("stl2",convertToReadableLabel(st2));
 		model.addAttribute("st2",st2);
 		model.addAttribute("sk2",sk2);
-		model.addAttribute("stl3",stl3);
+		model.addAttribute("stl3",convertToReadableLabel(st3));
 		model.addAttribute("st3",st3);
 		model.addAttribute("sk3",sk3);
-		model.addAttribute("stl4",stl4);
+		model.addAttribute("stl4",convertToReadableLabel(st4));
 		model.addAttribute("st4",st4);
 		model.addAttribute("sk4",sk4);
 		return "book/results";
@@ -136,49 +133,8 @@ public class BkController {
 		model.addAttribute("bsave","도서 등록 성공");
 		return "book/write";
 	}
-//	@GetMapping("/view/{bid}")
-//	public String view(@PathVariable("bid") Long bid, Model model, RedirectAttributes ra,
-//					@RequestParam(value="searchType1",required=false) String st1,
-//					@RequestParam(value="searchKeyword1",required=false) String sk1,
-//					@RequestParam(value="searchType2",required=false) String st2,
-//					@RequestParam(value="searchKeyword2",required=false) String sk2,
-//					@RequestParam(value="searchType3",required=false) String st3,
-//					@RequestParam(value="searchKeyword3",required=false) String sk3,
-//					@RequestParam(value="searchType4",required=false) String st4,
-//					@RequestParam(value="searchKeyword4",required=false) String sk4,
-//					@RequestParam(value="page", required=false) Optional<Integer> po){
-//		List<BkDTO> sr=bkService.searchBooksByMultipleCriteria(st1, sk1, st2, sk2, st3, sk3, st4, sk4);
-//		int page=po.orElse(0);
-//		int ci=-1;
-//		for(int i=0;i<sr.size();i++) {
-//			if(sr.get(i).getBid().equals(bid)) {
-//				ci=i;
-//				break;
-//			}
-//		}
-//		if(ci==-1) {
-//			ra.addFlashAttribute("alertMessage","해당 도서를 찾을 수 없습니다");
-//			return "redirect:/error";
-//		}
-//		Long preBid=ci>0 ? sr.get(ci-1).getBid() : null;
-//		Long nextBid=ci<sr.size()-1 ? sr.get(ci+1).getBid() : null;
-//		BkDTO bk=sr.get(ci);
-//		model.addAttribute("searchType1",st1);
-//		model.addAttribute("searchKeyword1",sk1);
-//		model.addAttribute("searchType2",st2);
-//		model.addAttribute("searchKeyword2",sk2);
-//		model.addAttribute("searchType3",st3);
-//		model.addAttribute("searchKeyword3",sk3);
-//		model.addAttribute("searchType4",st4);
-//		model.addAttribute("searchKeyword4",sk4);
-//		model.addAttribute("page",page);
-//		model.addAttribute("bk",bk);
-//		model.addAttribute("preBid",preBid);
-//		model.addAttribute("nextBid",nextBid);
-//		return "book/view";
-//	}
 	@GetMapping("/view/{bid}")
-	public String view(@PathVariable("bid") Long bid, Model model, RedirectAttributes ra,
+	public String results(@PathVariable("bid") Long bid, Model model, RedirectAttributes ra,
 					@RequestParam(value="st1",required=false) String st1,
 					@RequestParam(value="sk1",required=false) String sk1,
 					@RequestParam(value="st2",required=false) String st2,
@@ -189,13 +145,10 @@ public class BkController {
 					@RequestParam(value="sk4",required=false) String sk4,
 					@RequestParam(value="page", required=false) Optional<Integer> po){
 		int page=po.orElse(0);
-		int pageSize=10;
-		Pageable pageable=PageRequest.of(page, pageSize);
-		Page<BkDTO> sr=bkService.searchBooksByMultipleCriteria(st1, sk1, st2, sk2, st3, sk3, st4, sk4, pageable);
+		List<BkDTO> sr=bkService.searchAllBooksByMultipleCriteria(st1, sk1, st2, sk2, st3, sk3, st4, sk4);
 		int ci=-1;
-		List<BkDTO> books=sr.getContent();
-		for(int i=0;i<books.size();i++) {
-			if(books.get(i).getBid().equals(bid)) {
+		for(int i=0;i<sr.size();i++) {
+			if(sr.get(i).getBid().equals(bid)) {
 				ci=i;
 				break;
 			}
@@ -204,9 +157,9 @@ public class BkController {
 			ra.addFlashAttribute("alertMessage","해당 도서를 찾을 수 없습니다");
 			return "redirect:/error";
 		}
-		Long preBid=ci>0 ? books.get(ci-1).getBid() : null;
-		Long nextBid=ci<books.size()-1 ? books.get(ci+1).getBid() : null;
-		BkDTO bk=books.get(ci);
+		Long preBid=ci>0 ? sr.get(ci-1).getBid() : null;
+		Long nextBid=ci<sr.size()-1 ? sr.get(ci+1).getBid() : null;
+		BkDTO bk=sr.get(ci);
 		model.addAttribute("st1",st1);
 		model.addAttribute("sk1",sk1);
 		model.addAttribute("st2",st2);
@@ -219,7 +172,6 @@ public class BkController {
 		model.addAttribute("bk",bk);
 		model.addAttribute("preBid",preBid);
 		model.addAttribute("nextBid",nextBid);
-		model.addAttribute("totalPages",sr.getTotalPages());
 		return "book/view";
 	}
 	@GetMapping("/delete")

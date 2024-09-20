@@ -203,12 +203,4 @@ public class BkController {
 		bkService.update(bkDTO);
 		return "redirect:/view/"+bkDTO.getBid();
 	}
-//	@GetMapping("/index")
-//	public String index(){
-//		return "index";
-//	}
-//	@GetMapping("/login")
-//	public String login(){
-//		return "login";
-//	}
 }

@@ -7,7 +7,6 @@
 }
 ul{ list-style-type:none; }
 p{
-	padding:10px;
 	vertical-align:middle;
 }
 
@@ -29,10 +28,11 @@ p{
 	text-align:center;
 }
 
-/* .hdata, .sdata, .tdata, .contdata, .imgdata{
-	border:1px solid black;
+.hdata, .sdata, .tdata, .contdata, .imgdata{
+	border:1px solid #ccc;
 	border-radius:5px;
-} */
+	padding:o;
+}
 .hdata, .sdata, .tdata{ height:45px; }
 .contdata, .imgdata{ height:400px; }
 .hdata{ width:550px; }
@@ -43,44 +43,72 @@ p{
 	width:400px;
 	overflow:auto;
 	resize:none;
+    border:1px solid #ccc;
+	border-radius:5px;
 	justify-content:center;
 	align-items:center;
 }
 .imgdata img{
 	max-width:100%;
 	max-height:360px;
-	object-fit: contain;
+	object-fit:contain;
 }
 
 .input{
 	width:100%;
 	height:100%;
-	/* border:none; */
+	border:none;
 	box-sizing:border-box;
 }
 .imginput{
 	width:100%;
 	height:40px;
+	border:none;
 	box-sizing:border-box;
 }
 input[type="number"], input[type="text"] { font-size:1rem; }
 .textarea{
 	width:100%;
 	height:100%;
-	/* border:none; */
+	border:none;
 	overflow:auto;
 	resize:none;
 }
-
-#button{ display:flex; }
+.leftarrow, .rightarrow{
+    padding:10px;
+	font-size:20px;
+	background-color:#5cb85c;
+	border-radius:5px;
+    color:white;
+	display:block;
+	width:200px;
+}
+.leftarrow{ float:left; }
+.rightarrow{ float:right; }
+#button{
+	display:flex;
+}
 #viewbt{
 	text-align:center;
 	margin-bottom:20px;
 }
 input, textarea {
-    width: 100%; /* 검색바는 넓게 설정 */
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width:100%;
+    padding:5px 5px;
+}
+.bview{
+	height:80px;
+    text-decoration:none;
+    color:black;
+    border-radius:5px;
+}
+.bview:hover{
+	cursor:pointer;
+    text-decoration:none;
+    color:white;
+    font-weight:800;
+	background-color:#ccffcc;
+	box-shadow:3px 3px 5px rgba(0,0,0,0.2);
+	border-collapse:collapse;
+    border-radius:5px;
 }
